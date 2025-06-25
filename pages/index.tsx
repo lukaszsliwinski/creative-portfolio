@@ -4,6 +4,7 @@ import Nav from '@/components/layout/Nav';
 import Landing from '@/components/layout/Landing';
 import ToggleLanguage from '@/components/ToggleLanguage';
 import About from '@/components/layout/About';
+import Technologies from '@/components/layout/Technologies';
 
 export default function HomePage() {
   return (
@@ -14,11 +15,9 @@ export default function HomePage() {
         <Landing />
         <ToggleLanguage />
         <About />
+        <Technologies />
         <section className="h-screen flex justify-center items-center">
-          section
-        </section>
-        <section className="h-screen flex justify-center items-center">
-          section
+          projects
         </section>
       </main>
     </LanguageProvider>

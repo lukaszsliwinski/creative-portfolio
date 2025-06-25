@@ -15,7 +15,7 @@ export default function About() {
   }, []);
 
   return (
-    <section className="min-h-screen flex p-6" id="about">
+    <section className="min-h-1/3 flex p-6" id="about">
       <div
         className="flex-1"
       >
