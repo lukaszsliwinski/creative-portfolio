@@ -81,10 +81,11 @@ export default function Projects() {
   };
 
   return (
-    <div
+    <section
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`overflow-hidden w-full whitespace-nowrap ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+      id="projects"
     >
       <div
         ref={containerRef}
@@ -103,6 +104,6 @@ export default function Projects() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

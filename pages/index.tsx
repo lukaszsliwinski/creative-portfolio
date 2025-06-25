@@ -5,6 +5,7 @@ import Landing from '@/components/layout/Landing';
 import ToggleLanguage from '@/components/ToggleLanguage';
 import About from '@/components/layout/About';
 import Technologies from '@/components/layout/Technologies';
+import Projects from '@/components/layout/Projects';
 
 export default function HomePage() {
   return (
@@ -16,9 +17,7 @@ export default function HomePage() {
         <ToggleLanguage />
         <About />
         <Technologies />
-        <section className="h-screen flex justify-center items-center">
-          projects
-        </section>
+        <Projects />
       </main>
     </LanguageProvider>
   );
