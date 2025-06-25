@@ -1,5 +1,7 @@
 {
   "nav.about": "O MNIE",
   "nav.technologies": "TECHNOLOGIE",
-  "nav.projects": "PROJEKTY"
+  "nav.projects": "PROJEKTY",
+  "about.bio1": "Cześć! Jestem programistą aplikacji internetowych, stron WWW oraz aplikacji PWA. Pracuję jako front-end developer przy rozwoju wewnętrznego systemu do zarządzania działami firmy kolejowej. Po godzinach szlifuję umiejętności poprzez tworzenie własnych aplikacji i stron internetowych. Dodatkowo rozwijam się w obszarze uczenia maszynowego i głębokiego oraz łączę nabytą wiedzę z web developmentem.",
+  "about.bio2": "Poniżej przedstawiam kilka swoich projektów wykonanych w nowoczesnych technologiach front-end'owych takich jak TypeScript, React.js, Next.js, Angular, czy Tailwindcss. Wszystkie aplikacje są umieszczone na własnym, skonfigutowanym przeze mnie serwerze. Wykorzystuję środowisko Node.js jako back-end oraz MongoDB jako bazę danych. Projekty z obszaru deep learning tworzę z wykorzystaniem Python i PyTorch do tworzenia modeli oraz Flask jako back-end. Aplikacje tworzę z zachowaniem zasad responsive web design, aby poprawnie wyświetlały się również na urządzeniach mobilnych."
 }
