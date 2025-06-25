@@ -9,17 +9,14 @@ export default function Background() {
   useEffect(() => {
     const w = window.innerWidth;
     const h = window.innerHeight;
-
-    // Create scene and set black background
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x000000);
     
     // Perspective camera
     const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
     camera.position.z = 5;
     
-    // WebGL renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    // WebGL renderer z przezroczystością
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(w, h);
     
     if (bgRef.current) {
@@ -106,14 +103,10 @@ export default function Background() {
     <div
       ref={bgRef}
       className="fixed top-0 left-0 w-screen h-screen -z-10 overflow-hidden"
+      style={{
+        background: `radial-gradient(ellipse at 60% 30%, #232b45bb 0%, #00000000 60%),\nlinear-gradient(to bottom, #000000 0%, #24143a 100%)`
+      }}
     >
-      {/* <img
-        src="/mountains.png"
-        alt="Mountains"
-        className="absolute bottom-0 left-0 w-full pointer-events-none select-none z-0"
-        style={{ userSelect: 'none' }}
-        draggable="false"
-      /> */}
     </div>
   );
 };
