@@ -6,6 +6,7 @@ import ToggleLanguage from '@/components/ToggleLanguage';
 import About from '@/components/layout/About';
 import Technologies from '@/components/layout/Technologies';
 import Projects from '@/components/layout/Projects';
+import Mountains from '@/components/layout/Mountains';
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
         <Background />
         <Nav />
         <Landing />
+        <Mountains />
         <ToggleLanguage />
         <About />
         <Technologies />

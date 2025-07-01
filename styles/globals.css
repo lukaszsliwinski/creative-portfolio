@@ -31,4 +31,7 @@ body {
     0% { transform: rotate(0deg);}
     100% { transform: rotate(1620deg);}
   }
+  .drop-shadow-top {
+    filter: drop-shadow(0 -16px 32px rgba(0,0,0,0.45));
+  }
 }

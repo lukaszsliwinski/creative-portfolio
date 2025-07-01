@@ -27,7 +27,7 @@ export default function Background() {
     const verts: number[] = [];
     const colors: number[] = [];
     
-    for (let i = 0; i < 4500; i++) {
+    for (let i = 0; i < 2000; i++) {
       // Random position on a sphere
       const radius = Math.random() * 25 + 25;
       const u = Math.random();
@@ -104,7 +104,7 @@ export default function Background() {
       ref={bgRef}
       className="fixed top-0 left-0 w-screen h-screen -z-10 overflow-hidden"
       style={{
-        background: `radial-gradient(ellipse at 60% 30%, #232b45bb 0%, #00000000 60%),\nlinear-gradient(to bottom, #000000 0%, #24143a 100%)`
+        background: `radial-gradient(ellipse at 60% 30%, #232b4599 0%, #00000000 60%),\nlinear-gradient(to bottom, #000000 0%, #24143a66 100%)`
       }}
     >
     </div>
