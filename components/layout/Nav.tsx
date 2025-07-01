@@ -8,9 +8,12 @@ const DURATION_CLASS = `duration-${ANIMATION_DURATION}`;
 function NavItem({ href, label }: { href: string; label: string }) {
   return (
     <li className="relative h-7 overflow-hidden group cursor-pointer">
-      <span className="block transition-transform duration-200 group-hover:-translate-y-7">{label}</span>
-      <span className="block absolute left-0 top-7 w-full transition-transform duration-200 group-hover:-translate-y-7 text-neutral-400">{label}</span>
-      <a href={href} className="sr-only">{label}</a>
+      <span className="block transition-transform duration-200 group-hover:-translate-y-7">
+        {label}
+      </span>
+      <span className="block absolute left-0 top-7 w-full transition-transform duration-200 group-hover:-translate-y-7 text-neutral-400">
+        <a href={href}>{label}</a>
+      </span>
     </li>
   );
 }
