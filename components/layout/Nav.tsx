@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
+import ToggleLanguage from '../ToggleLanguage';
+
 const ANIMATION_DURATION = 800; // ms
 const DURATION_CLASS = `duration-${ANIMATION_DURATION}`;
 
@@ -57,6 +59,7 @@ export default function Nav() {
           <NavItem href="#technologies" label={t('nav.technologies')} />
           <NavItem href="#projects" label={t('nav.projects')} />
         </ul>
+        <ToggleLanguage />
       </nav>
     </>
   );

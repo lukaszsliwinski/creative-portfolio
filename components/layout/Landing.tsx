@@ -1,26 +1,241 @@
-import { useLanguage } from "@/context/LanguageContext";
+'use client';
+
+import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation, easeInOut } from "framer-motion";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faCircleDown } from '@fortawesome/free-regular-svg-icons';
+
+import Nav from "./Nav";
 
 export default function Landing() {
-  const { t } = useLanguage();
+  const [xCurtainOffset, setXCurtainOffset] = useState(0);
+  const [h1CursorVisible, setH1CursorVisible] = useState(false);
+  const [h2CursorVisible, setH2CursorVisible] = useState(false);
+
+  const curtainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setXCurtainOffset(window.innerWidth / 2);
+  }, []);
+
+  const curtainSpeedFactor = .8;
+
+  // animation controls
+  const lineControls = useAnimation();
+  const leftCurtainControls = useAnimation();
+  const rightCurtainControls = useAnimation();
+  const h1Controls = useAnimation();
+  const h2Controls = useAnimation();
+  const iconsControls = useAnimation();
+  const navControls = useAnimation();
+
+  // motion variants
+  const lineVariants = {
+    visible: {
+      height: "100%",
+      transition: { duration: .5 * curtainSpeedFactor, ease: easeInOut }
+    },
+    hidden: {
+      opacity: 0,
+      transition: { duration: 0.01 }
+    }
+  }
+
+  const leftCurtainVariants = {
+    open: {
+      x: -xCurtainOffset,
+      transition: { duration: curtainSpeedFactor, ease: easeInOut }
+    }
+  }
+
+  const rightCurtainVariants = {
+    open: {
+      x: xCurtainOffset,
+      transition: { duration: curtainSpeedFactor, ease: easeInOut }
+    }
+  }
+
+  const h1Variants = {
+    visible: {transition: { staggerChildren: 0.04 }}
+  }
+
+  const h2Variants = {
+    visible: {transition: { staggerChildren: 0.04 }}
+  }
+
+  const charVariants = {
+    hidden: { display: 'none' },
+    visible: { display: 'inline-block', transition: { duration: 0 } },
+  }
+
+  const iconsContainerVariants = {
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    }
+  }
+
+  const iconVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: [0, 1.15, 1],
+      transition: {
+        duration: 0.6,
+        ease: easeInOut,
+      },
+    },
+  };
+
+  const navVariants = {
+    hidden: { x: '-100%', opacity: 0 },
+    visible: {
+      x: '0%',
+      opacity: 1,
+      transition: { duration: 0.6, ease: easeInOut, delay: 0.5 },
+    },
+  };
+
+  useEffect(() => {
+    (async () => {
+      await lineControls.start("visible");
+      await lineControls.start("hidden");
+
+      await Promise.all([
+        leftCurtainControls.start("open"),
+        rightCurtainControls.start("open"),
+      ]).then(() => setH1CursorVisible(true));
+
+      await h1Controls.start('visible').then(() => {
+        setH1CursorVisible(false);
+        setH2CursorVisible(true);
+      })
+      await h2Controls.start('visible').then(() => setH2CursorVisible(false));
+      iconsControls.start('visible');
+      await navControls.start('visible');
+
+      curtainRef.current?.remove();
+    })();
+  }, []);
+
+  // split headers to characters function
+  const splitToCharSpans = (text: string) => {
+    return text.split('').map((char, i) => (
+      <motion.span
+        key={i}
+        variants={charVariants}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ));
+  }
 
   return (
-    <section className="h-screen flex flex-col justify-center items-center">
-      <hgroup className="flex flex-col items-center space-y-3 tracking-[.4em]">
-        <h1 className="font-medium text-7xl">
-          ŁUKASZ ŚLIWIŃSKI
-        </h1>
-        <h2 className="text-3xl text-neutral-400">
-          FRONT-END DEVELOPER
-        </h2>
-      </hgroup>
-      <a
-        href="#about"
-        className="mt-6 inline-flex items-center rounded-sm border border-white px-6 py-5 text-center text font-medium focus:outline-none focus:ring-4 focus:ring-white relative h-7 overflow-hidden group"
+    <>
+      <div
+        ref={curtainRef}
+        className="fixed top-0 left-0 w-full h-screen z-100 flex overflow-hidden"
       >
-        <span className="block transition-transform duration-200 group-hover:-translate-y-10">{t('nav.about')}</span>
-        <span className="block absolute left-0 top-10 w-full transition-transform duration-200 group-hover:-translate-y-8">{t('nav.about')}</span>
-        <span className="sr-only">{t('nav.about')}</span>
-      </a>
-    </section>
+        {/* Vertical line */}
+        <motion.div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-px bg-white/30"
+          animate={lineControls}
+          variants={lineVariants}
+          initial={{ height: 0, opacity: 1 }}
+        />
+        
+        {/* Left curtain */}
+        <motion.div
+          className="w-1/2 h-full bg-black"
+          animate={leftCurtainControls}
+          variants={leftCurtainVariants}
+          initial={{ x: 0 }}
+        />
+
+        {/* Rigth curtain */}
+        <motion.div
+          className="w-1/2 h-full bg-black"
+          animate={rightCurtainControls}
+          variants={rightCurtainVariants}
+          initial={{ x: 0 }}
+
+        />
+      </div>
+      
+      <motion.div
+        initial="hidden"
+        animate={navControls}
+        variants={navVariants}
+        className="w-full" // lub dopasuj do swojego layoutu
+      >
+        <Nav />
+      </motion.div>
+
+      <section className="h-screen flex flex-col justify-center items-center">  
+        <hgroup className="text-center h-22 tracking-[.4em]">
+          <motion.h1
+            className="mb-4 font-medium text-7xl ml-6"
+            animate={h1Controls}
+            variants={h1Variants}
+            initial="hidden"
+          >
+            {splitToCharSpans('ŁUKASZ ŚLIWIŃSKI')}
+            <span className={`text-purple-800 ${h1CursorVisible ? 'visible' : 'invisible'}`}>|</span>
+          </motion.h1>
+          
+          <motion.h2
+            className="text-3xl text-neutral-400 mt-4 ml-5"
+            animate={h2Controls}
+            variants={h2Variants}
+            initial="hidden"
+          >
+            {splitToCharSpans('FRONT-END DEVELOPER')}
+            <span className={`text-purple-800 ${h2CursorVisible ? 'visible' : 'invisible'}`}>|</span>
+          </motion.h2>
+        </hgroup>
+
+        <div className="h-12 mt-4">
+          <motion.div
+            className="relative mt-8 flex gap-6 justify-center"
+            initial="hidden"
+            animate={iconsControls}
+            variants={iconsContainerVariants}
+          >
+            <motion.a
+              href="https://github.com/twoj-login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl text-neutral-200 hover:text-neutral-400 transition-colors duration-200"
+              aria-label="GitHub"
+              variants={iconVariants}
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/twoj-login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl text-neutral-200 hover:text-neutral-400 transition-colors duration-200"
+              aria-label="LinkedIn"
+              variants={iconVariants}
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </motion.a>
+            <motion.a
+              href="#about"
+              className="absolute mt-40 text-neutral-200 hover:text-neutral-400 hover:scale-110 transition-colors duration-200"
+              aria-label="Scroll down"
+              variants={iconVariants}
+            >
+              <FontAwesomeIcon icon={faCircleDown} size="3x" />
+            </motion.a>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }

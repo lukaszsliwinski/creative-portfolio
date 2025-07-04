@@ -1,8 +1,6 @@
 import { LanguageProvider } from '@/context/LanguageContext';
 import Background from '@/components/layout/Background';
-import Nav from '@/components/layout/Nav';
 import Landing from '@/components/layout/Landing';
-import ToggleLanguage from '@/components/ToggleLanguage';
 import About from '@/components/layout/About';
 import Technologies from '@/components/layout/Technologies';
 import Projects from '@/components/layout/Projects';
@@ -13,10 +11,8 @@ export default function HomePage() {
     <LanguageProvider>
       <main className="tracking-widest select-none">
         <Background />
-        <Nav />
-        <Landing />
         <Mountains />
-        <ToggleLanguage />
+        <Landing />
         <About />
         <Technologies />
         <Projects />
