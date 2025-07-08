@@ -1,31 +1,61 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import { easeInOut, motion, useAnimation, useInView } from "framer-motion";
+
 import { useLanguage } from "@/context/LanguageContext";
 import BioCard from "../BioCard";
 
 export default function About() {
   const { t } = useLanguage();
-  const [offset, setOffset] = useState(0);
+
+  const transition = { duration: 0.6, ease: easeInOut };
+  const xOffset = typeof window !== "undefined" ? window.innerWidth / 2 : 0;
+
+  // Card 1 (from left)
+  const ref1 = useRef(null);
+  const inView1 = useInView(ref1, { amount: 0.3, once: false });
+  const animLeft = useAnimation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setOffset(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    if (inView1) {
+      animLeft.start({ x: 0, opacity: 1, transition });
+    } else {
+      animLeft.start({ x: -xOffset, opacity: 0, transition });
+    }
+  }, [inView1]);
+
+  // Card 2 (from right)
+  const ref2 = useRef(null);
+  const inView2 = useInView(ref2, { amount: 0.3, once: false });
+  const animRight = useAnimation();
+
+  useEffect(() => {
+    if (inView2) {
+      animRight.start({ x: 0, opacity: 1, transition });
+    } else {
+      animRight.start({ x: xOffset, opacity: 0, transition });
+    }
+  }, [inView2]);
 
   return (
-    <section className="min-h-1/3 flex p-6" id="about">
-      <div
-        className="flex-1"
-      >
-        <BioCard text={t('about.bio1')} />
-      </div>
-      <div
-        className="flex-1 transition-transform duration-100 will-change-transform flex items-center"
-        style={{ transform: `translateY(${-offset * 0.3}px)` }}
-      >
-        <BioCard text={t('about.bio2')} />
+    <section className="flex flex-col justify-center h-screen overflow-x-hidden" id="about">
+      <h2 className="text-2xl text-center my-8">{t('nav.about')}</h2>
+      <div className="grid grid-cols-4 gap-y-8 w-5xl mx-auto">
+        <motion.div
+          ref={ref1}
+          className="col-span-3"
+          initial={{ x: -xOffset, opacity: 0 }}
+          animate={animLeft}
+        >
+          <BioCard text={t("about.bio1")} />
+        </motion.div>
+        <motion.div
+          ref={ref2}
+          className="col-span-3 col-start-2"
+          initial={{ x: xOffset, opacity: 0 }}
+          animate={animRight}
+        >
+          <BioCard text={t("about.bio2")} />
+        </motion.div>
       </div>
     </section>
   );
