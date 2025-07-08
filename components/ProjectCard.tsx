@@ -1,0 +1,54 @@
+import { ReactNode } from 'react';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode, faLink } from '@fortawesome/free-solid-svg-icons';
+import ProjectLink from './ProjectLink';
+
+export interface IProjectCard {
+  children: ReactNode;
+  previewSrc: string;
+  title: string;
+  app: string;
+  description: string;
+  sourceUrl: string;
+  linkUrl: string;
+}
+
+
+// ProjectCard component
+export default function ProjectCard({
+  children,
+  previewSrc,
+  title,
+  app,
+  description,
+  sourceUrl,
+  linkUrl
+}: IProjectCard) {
+  // Getting the features array from the translation files
+  return (
+    <div className="w-lg m-3 px-10 py-8 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
+
+      <h3 className="w-full text-3xl">{title}</h3>
+      <div className="w-full flex space-x-3 pt-4 pb-6">{children}</div>
+      <div className="whitespace-pre-line text-justify h-30 overflow-y-hidden">
+        {description}
+      </div>
+
+      <div className="mt-8">
+        <Image
+          className="mx-auto rounded"
+          src={previewSrc}
+          alt="apps screen"
+          width="450"
+          height="300"
+          draggable={false}
+        />
+        <div className="mt-4 flex flex-wrap justify-center">
+          <ProjectLink href={sourceUrl} text='Code' icon={faCode} />
+          <ProjectLink href={linkUrl} text='Link' icon={faLink} />
+        </div>
+      </div>
+    </div>
+  );
+}

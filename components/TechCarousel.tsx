@@ -5,29 +5,29 @@ import * as THREE from 'three'
 
 import TechBall from './TechBall';
 
-// List of texture paths located in the public/textures folder
-const texturePaths = [
-  '/textures/typescript.png',
-  '/textures/javascript.png',
-  '/textures/react.png',
-  '/textures/next.png',
-  '/textures/angular.png',
-  '/textures/redux.png',
-  '/textures/tailwind.png',
-  '/textures/flowbite.png',
-  '/textures/scss.png',
-  '/textures/bootstrap.png',
-  '/textures/jquery.png',
-  '/textures/python.png',
-  '/textures/node.png',
-  '/textures/php.png',
-  '/textures/flask.png',
-  '/textures/pytorch.png',
-  '/textures/colab.png',
-  '/textures/openvino.png',
-  '/textures/mongo.png',
-  '/textures/mysql.png',
-  '/textures/git.png',
+// List of icon paths located in the public/icons folder
+const iconPaths = [
+  '/icons/typescript.png',
+  '/icons/javascript.png',
+  '/icons/react.png',
+  '/icons/next.png',
+  '/icons/angular.png',
+  '/icons/redux.png',
+  '/icons/tailwind.png',
+  '/icons/flowbite.png',
+  '/icons/scss.png',
+  '/icons/bootstrap.png',
+  '/icons/jquery.png',
+  '/icons/python.png',
+  '/icons/node.png',
+  '/icons/php.png',
+  '/icons/flask.png',
+  '/icons/pytorch.png',
+  '/icons/colab.png',
+  '/icons/openvino.png',
+  '/icons/mongo.png',
+  '/icons/mysql.png',
+  '/icons/git.png',
 ]
 
 
@@ -42,17 +42,17 @@ export default function TechCarousel() {
   })
 
   const radius = 4
-  const count = texturePaths.length
-  const textures = useLoader(TextureLoader, texturePaths)
+  const count = iconPaths.length
+  const icons = useLoader(TextureLoader, iconPaths)
 
   // Calculate sphere positions evenly spaced on circle and create Sphere components
-  const spheres = textures.map((texture, i) => {
+  const spheres = icons.map((icon, i) => {
     const angle = (i / count) * Math.PI * 2
     const x = radius * Math.cos(angle)
     const z = radius * Math.sin(angle)
     const y = 0
 
-    return <TechBall key={i} position={[x, y, z]} texture={texture} />
+    return <TechBall key={i} position={[x, y, z]} texture={icon} />
   })
 
   return <group ref={groupRef}>{spheres}</group>
