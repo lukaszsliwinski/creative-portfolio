@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { easeInOut, motion, useAnimation, useInView } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
+import Header from "../Header";
 import BioCard from "../BioCard";
 
 export default function About() {
@@ -37,8 +38,8 @@ export default function About() {
   }, [inView2]);
 
   return (
-    <section className="flex flex-col justify-center h-screen overflow-x-hidden" id="about">
-      <h2 className="text-2xl text-center my-8">{t('nav.about')}</h2>
+    <section className="h-screen pt-28 overflow-x-hidden" id="about">
+      <Header text={t('nav.about')} />
       <div className="grid grid-cols-4 gap-y-8 w-5xl mx-auto">
         <motion.div
           ref={ref1}
