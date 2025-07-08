@@ -5,17 +5,19 @@ import About from '@/components/layout/About';
 import Technologies from '@/components/layout/Technologies';
 import Projects from '@/components/layout/Projects';
 import Mountains from '@/components/layout/Mountains';
+import Footer from '@/components/layout/Footer';
 
 export default function HomePage() {
   return (
     <LanguageProvider>
       <main className="tracking-widest select-none">
         <Background />
-        <Mountains />
+        {/* <Mountains /> */}
         <Landing />
         <About />
         <Technologies />
         <Projects />
+        <Footer />
       </main>
     </LanguageProvider>
   );
