@@ -13,7 +13,7 @@ function NavItem({ href, label }: { href: string; label: string }) {
       <span className="block transition-transform duration-200 group-hover:-translate-y-7">
         {label}
       </span>
-      <span className="block absolute left-0 top-7 w-full transition-transform duration-200 group-hover:-translate-y-7 text-neutral-400">
+      <span className="block absolute left-0 top-7 w-full transition-transform duration-200 group-hover:-translate-y-7 text-main">
         <a href={href}>{label}</a>
       </span>
     </li>
@@ -34,7 +34,7 @@ export default function Nav() {
       {/* Toggle menu open button, always visible on the left */}
       {!visible && (
         <button
-          className="fixed top-4 left-4 z-50 text-3xl transition cursor-pointer hover:text-neutral-400"
+          className="fixed top-4 left-4 z-50 text-3xl transition cursor-pointer hover:text-main"
           onClick={() => handleToggle(true)}
           aria-label="Show menu"
         >
@@ -47,7 +47,7 @@ export default function Nav() {
       >
         {visible && (
           <button
-            className="text-3xl font-medium transition cursor-pointer hover:text-neutral-400 mr-8"
+            className="text-3xl font-medium transition cursor-pointer hover:text-main mr-8"
             onClick={() => handleToggle(false)}
             aria-label="Hide menu"
           >

@@ -42,7 +42,7 @@ export default function ToggleLanguage() {
             {language === 'pl' ? 'EN' : 'PL'}
           </span>
           <span
-            className="block absolute top-7 left-0 right-0 transition-transform text-neutral-300 duration-300 group-hover:-translate-y-6.5"
+            className="block absolute top-7 left-0 right-0 transition-transform text-main duration-300 group-hover:-translate-y-6.5"
           >
             {language === 'pl' ? 'EN' : 'PL'}
           </span>

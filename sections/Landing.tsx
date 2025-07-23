@@ -210,7 +210,7 @@ export default function Landing() {
                 href="https://github.com/twoj-login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-3xl hover:text-neutral-400 transition-colors duration-200"
+                className="text-3xl hover:text-main transition-colors duration-200"
                 aria-label="GitHub"
                 variants={iconVariants}
               >
@@ -220,7 +220,7 @@ export default function Landing() {
                 href="https://www.linkedin.com/in/twoj-login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-3xl hover:text-neutral-400 transition-colors duration-200"
+                className="text-3xl hover:text-main transition-colors duration-200"
                 aria-label="LinkedIn"
                 variants={iconVariants}
               >
