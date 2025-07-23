@@ -164,7 +164,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="pt-28" id="projects">
+    <section id="projects">
       <Header text={t('nav.projects')} />
       <div
         onMouseEnter={handleMouseEnter}

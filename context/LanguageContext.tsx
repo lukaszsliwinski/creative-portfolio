@@ -1,4 +1,3 @@
-// context/LanguageContext.tsx
 'use client';
 
 import { createContext, useContext, useState, ReactNode, useMemo } from 'react';

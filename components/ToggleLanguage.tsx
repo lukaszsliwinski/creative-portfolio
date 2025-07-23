@@ -22,11 +22,11 @@ export default function ToggleLanguage() {
       <span className="relative flex items-center justify-center w-16 h-16">
         {/* Circular arrows SVG */}
         <svg
-          className={`absolute inset-0 w-16 h-16 text-neutral-400 ${rotating ? 'animate-whirl' : ''}`}
+          className={`absolute inset-0 w-16 h-16 text-white ${rotating ? 'animate-whirl' : ''}`}
           viewBox="0 0 64 64"
           fill="none"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth=".5"
         >
           <circle cx="32" cy="32" r="24" fill="#000" />
           <path d="M32 8a24 24 0 1 1-16.97 7.03" />
@@ -35,14 +35,14 @@ export default function ToggleLanguage() {
           <polygon points="51,51 42,56 47,47" fill="currentColor" />
         </svg>
         {/* Animated language text */}
-        <span className="relative z-10 flex flex-col items-center justify-center h-8 overflow-hidden select-none">
+        <span className="relative z-10 flex flex-col items-center justify-center h-8 overflow-hidden select-none pl-0.5">
           <span
             className="block transition-transform duration-300 group-hover:-translate-y-7"
           >
             {language === 'pl' ? 'EN' : 'PL'}
           </span>
           <span
-            className="block absolute top-7 left-0 right-0 transition-transform duration-300 text-neutral-400 group-hover:-translate-y-6.5"
+            className="block absolute top-7 left-0 right-0 transition-transform text-neutral-300 duration-300 group-hover:-translate-y-6.5"
           >
             {language === 'pl' ? 'EN' : 'PL'}
           </span>

@@ -14,7 +14,7 @@ export default function Header({ text }: { text: string }) {
   return (
     <motion.h2
       ref={ref}
-      className="text-3xl text-center my-8"
+      className="font-light text-3xl text-center pt-24 pb-12"
       style={{ color }}
     >
       {text}

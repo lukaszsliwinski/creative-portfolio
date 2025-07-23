@@ -2,20 +2,25 @@ import { LanguageProvider } from '@/context/LanguageContext';
 import Background from '@/components/layout/Background';
 import Landing from '@/components/layout/Landing';
 import About from '@/components/layout/About';
-import Technologies from '@/components/layout/Technologies';
 import Projects from '@/components/layout/Projects';
-import Mountains from '@/components/layout/Mountains';
 import Footer from '@/components/layout/Footer';
+
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter',
+});
+
 
 export default function HomePage() {
   return (
     <LanguageProvider>
-      <main className="tracking-widest select-none">
+      <main className={`${inter.variable} font-sans tracking-[0.165em] text-white text-sm leading-7 select-none font-extralight`}>
         <Background />
-        {/* <Mountains /> */}
         <Landing />
         <About />
-        <Technologies />
         <Projects />
         <Footer />
       </main>

@@ -34,7 +34,7 @@ export default function Nav() {
       {/* Toggle menu open button, always visible on the left */}
       {!visible && (
         <button
-          className="fixed top-4 left-4 z-50 text-3xl transition cursor-pointer hover:text-neutral-400 hover:scale-105"
+          className="fixed top-4 left-4 z-50 text-3xl transition cursor-pointer hover:text-neutral-400"
           onClick={() => handleToggle(true)}
           aria-label="Show menu"
         >
@@ -47,16 +47,15 @@ export default function Nav() {
       >
         {visible && (
           <button
-            className="text-2xl transition cursor-pointer hover:text-neutral-400 hover:scale-105 mr-8"
+            className="text-3xl font-medium transition cursor-pointer hover:text-neutral-400 mr-8"
             onClick={() => handleToggle(false)}
             aria-label="Hide menu"
           >
             X
           </button>
         )}
-        <ul className="flex justify-center space-x-8 flex-1 my-1">
+        <ul className="flex justify-center font-light space-x-8 flex-1 my-1">
           <NavItem href="#about" label={t('nav.about')} />
-          <NavItem href="#technologies" label={t('nav.technologies')} />
           <NavItem href="#projects" label={t('nav.projects')} />
         </ul>
         <ToggleLanguage />

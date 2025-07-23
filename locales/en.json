@@ -1,6 +1,5 @@
 {
   "nav.about": "ABOUT ME",
-  "nav.technologies": "TECHNOLOGIES",
   "nav.projects": "PROJECTS",
   "about.bio1": "Hi! I am a developer specializing in web applications, websites, and PWAs. In my current job, I work as a front-end developer developing internal software for managing the departments of a railway company. After hours, I expand my knowledge and improve my skills by building my own applications and websites. I am also developing in machine and deep learning area, integrating these technologies with web development.",
   "about.bio2": "Below I present some of my side-projects, created as a part of my learning process using modern front-end technologies such as TypeScript, Angular, React.js and Tailwind CSS. All applications are hosted on a server configured by me. I use Node.js as the back-end and MongoDB as the database. In deep learning projects, I work with Python and PyTorch to build models and use Flask for the back-end. I develop applications following responsive web design pattern to display correctly on mobile devices.",

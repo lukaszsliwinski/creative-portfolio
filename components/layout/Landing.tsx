@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, easeInOut } from "framer-motion";
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faCircleDown } from '@fortawesome/free-regular-svg-icons';
 
 import Nav from "./Nav";
+import TechCarousel from '../TechCarousel';
 
 export default function Landing() {
   const [xCurtainOffset, setXCurtainOffset] = useState(0);
@@ -135,7 +137,7 @@ export default function Landing() {
   }
 
   return (
-    <>
+    <section>
       <div
         ref={curtainRef}
         className="fixed top-0 left-0 w-full h-screen z-100 flex overflow-hidden"
@@ -170,72 +172,84 @@ export default function Landing() {
         initial="hidden"
         animate={navControls}
         variants={navVariants}
-        className="w-full" // lub dopasuj do swojego layoutu
+        className="w-full"
       >
         <Nav />
       </motion.div>
 
-      <section className="h-screen flex flex-col justify-center items-center">  
-        <hgroup className="text-center h-22 tracking-[.4em]">
+      <div className="h-screen flex flex-col justify-center items-center">  
+        <div className="mt-8 text-center tracking-[.4em]">
           <motion.h1
-            className="mb-4 font-medium text-7xl ml-6"
+            className="mb-4 font-light tracking-[.2em] text-7xl ml-6"
             animate={h1Controls}
             variants={h1Variants}
             initial="hidden"
           >
             {splitToCharSpans('ŁUKASZ ŚLIWIŃSKI')}
-            <span className={`text-purple-800 ${h1CursorVisible ? 'visible' : 'invisible'}`}>|</span>
+            <span className={`text-purple-900 opacity-80 ${h1CursorVisible ? 'visible' : 'invisible'}`}>|</span>
           </motion.h1>
           
           <motion.h2
-            className="text-3xl text-neutral-400 mt-4 ml-5"
+            className="tracking-[.3em] text-3xl text-neutral-400 mt-4 ml-5"
             animate={h2Controls}
             variants={h2Variants}
             initial="hidden"
           >
             {splitToCharSpans('FRONT-END DEVELOPER')}
-            <span className={`text-purple-800 ${h2CursorVisible ? 'visible' : 'invisible'}`}>|</span>
+            <span className={`text-purple-900 opacity-80 ${h2CursorVisible ? 'visible' : 'invisible'}`}>|</span>
           </motion.h2>
-        </hgroup>
 
-        <div className="h-12 mt-4">
-          <motion.div
-            className="relative mt-8 flex gap-6 justify-center"
-            initial="hidden"
-            animate={iconsControls}
-            variants={iconsContainerVariants}
-          >
-            <motion.a
-              href="https://github.com/twoj-login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl text-neutral-200 hover:text-neutral-400 transition-colors duration-200"
-              aria-label="GitHub"
-              variants={iconVariants}
+          <div className="mt-6">
+            <motion.div
+              className="flex gap-6 justify-center"
+              initial="hidden"
+              animate={iconsControls}
+              variants={iconsContainerVariants}
             >
-              <FontAwesomeIcon icon={faGithub} />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/twoj-login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl text-neutral-200 hover:text-neutral-400 transition-colors duration-200"
-              aria-label="LinkedIn"
-              variants={iconVariants}
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
-            </motion.a>
-            <motion.a
-              href="#about"
-              className="absolute mt-40 text-neutral-200 hover:text-neutral-400 hover:scale-110 transition-colors duration-200"
-              aria-label="Scroll down"
-              variants={iconVariants}
-            >
-              <FontAwesomeIcon icon={faCircleDown} size="3x" />
-            </motion.a>
-          </motion.div>
+              <motion.a
+                href="https://github.com/twoj-login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-3xl hover:text-neutral-400 transition-colors duration-200"
+                aria-label="GitHub"
+                variants={iconVariants}
+              >
+                <FontAwesomeIcon icon={faGithub} size="xl" />
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/twoj-login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-3xl hover:text-neutral-400 transition-colors duration-200"
+                aria-label="LinkedIn"
+                variants={iconVariants}
+              >
+                <FontAwesomeIcon icon={faLinkedin} size="xl" />
+              </motion.a>
+            </motion.div>
+          </div>
         </div>
-      </section>
-    </>
+        <div className="flex items-center h-52 mt-12 overflow-y-hidden">
+          <Canvas
+            camera={{ position: [0, 1, 10], fov: 50 }}
+            style={{ 
+              width: '1000px',
+              height: '70vw',
+              maxHeight: '800px' }}
+          >
+            <ambientLight intensity={1.8} />
+            <directionalLight position={[5, 5, 5]} />
+            <TechCarousel />
+            <OrbitControls
+              enableZoom={false}
+              enablePan={false}
+              minPolarAngle={Math.atan2(1, 0.1)}
+              maxPolarAngle={Math.atan2(1, 0.1)}
+              target={[0, 0, 0]}
+            />
+          </Canvas>
+        </div>
+      </div>
+    </section>
   );
 }

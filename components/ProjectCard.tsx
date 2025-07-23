@@ -27,11 +27,11 @@ export default function ProjectCard({
 }: IProjectCard) {
   // Getting the features array from the translation files
   return (
-    <div className="w-lg m-3 px-10 py-8 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
+    <div className="w-xl mx-8 my-5 px-10 py-8 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
 
-      <h3 className="w-full text-3xl">{title}</h3>
+      <h3 className="w-full font-normal text-2xl">{title}</h3>
       <div className="w-full flex space-x-3 pt-4 pb-6">{children}</div>
-      <div className="whitespace-pre-line text-justify h-30 overflow-y-hidden">
+      <div className="whitespace-pre-line text-xs/6 text-justify h-30 overflow-y-hidden">
         {description}
       </div>
 
