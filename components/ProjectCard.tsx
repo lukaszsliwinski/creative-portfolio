@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faLink } from '@fortawesome/free-solid-svg-icons';
 import ProjectLink from './ProjectLink';
 

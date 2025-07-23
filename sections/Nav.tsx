@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
-import ToggleLanguage from '../ToggleLanguage';
+import ToggleLanguage from '@/components/ToggleLanguage';
 
 const ANIMATION_DURATION = 800; // ms
 const DURATION_CLASS = `duration-${ANIMATION_DURATION}`;

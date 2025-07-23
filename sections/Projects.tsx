@@ -1,9 +1,9 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import Header from '../Header';
-import ProjectCard from '../ProjectCard';
-import Footer from '@/components/layout/Footer';
+import Header from '@/components/Header';
+import ProjectCard from '@/components/ProjectCard';
+import Footer from '@/sections/Footer';
 
 import { useLanguage } from '@/context/LanguageContext';
 

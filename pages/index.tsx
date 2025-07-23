@@ -1,8 +1,8 @@
 import { LanguageProvider } from '@/context/LanguageContext';
-import Background from '@/components/layout/Background';
-import Landing from '@/components/layout/Landing';
-import About from '@/components/layout/About';
-import Projects from '@/components/layout/Projects';
+import Background from '@/sections/Background';
+import Landing from '@/sections/Landing';
+import About from '@/sections/About';
+import Projects from '@/sections/Projects';
 
 import { Inter } from 'next/font/google';
 

@@ -8,8 +8,8 @@ import { OrbitControls } from '@react-three/drei';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-import Nav from "./Nav";
-import TechCarousel from '../TechCarousel';
+import Nav from "@/sections/Nav";
+import TechCarousel from '@/components/TechCarousel';
 
 export default function Landing() {
   const [xCurtainOffset, setXCurtainOffset] = useState(0);

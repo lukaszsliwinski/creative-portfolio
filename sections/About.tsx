@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import { easeInOut, motion, useAnimation, useInView } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
-import Header from "../Header";
-import BioCard from "../BioCard";
+import Header from "@/components/Header";
+import BioCard from "@/components/BioCard";
 
 export default function About() {
   const { t } = useLanguage();
