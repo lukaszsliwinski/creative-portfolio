@@ -7,10 +7,25 @@ import Footer from '@/sections/Footer';
 
 import { useLanguage } from '@/context/LanguageContext';
 
+import { motion, useAnimation, useInView, easeInOut } from 'framer-motion';
+
 export default function Projects() {
   const [isHovered, setIsHovered] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+
+  const ref = useRef(null);
+  const inView = useInView(ref, { amount: 0.3, once: false });
+  const animOpacity = useAnimation();
+  const transition = { duration: 0.6, ease: easeInOut };
+
+  useEffect(() => {
+    if (inView) {
+      animOpacity.start({ opacity: 1, transition });
+    } else {
+      animOpacity.start({ opacity: 0, transition });
+    }
+  }, [inView]);
 
   const { t } = useLanguage();
 
@@ -167,7 +182,10 @@ export default function Projects() {
   return (
     <section className="relative min-h-screen" id="projects">
       <Header text={t('nav.projects')} />
-      <div
+      <motion.div
+        ref={ref}
+        animate={animOpacity}
+        initial={{ opacity: 0 }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className={`overflow-hidden w-full whitespace-nowrap ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
@@ -204,8 +222,7 @@ export default function Projects() {
             </ProjectCard>
           ))}
         </div>
-      </div>
-
+      </motion.div>
       <Footer />
     </section>
   );

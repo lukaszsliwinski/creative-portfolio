@@ -13,7 +13,7 @@ export default function ProjectLink({ href, text, icon }: { href: string, text: 
         {text}&nbsp;
         <FontAwesomeIcon icon={icon} size="1x" />
       </span>
-      <span className="block absolute left-0 top-8 w-full transition-transform duration-200 group-hover:-translate-y-7 text-neutral-400">
+      <span className="block absolute left-0 top-8 w-full transition-transform duration-200 group-hover:-translate-y-7 text-main">
         {text}&nbsp;
         <FontAwesomeIcon icon={icon} size="1x" />
       </span>

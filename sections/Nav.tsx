@@ -47,7 +47,7 @@ export default function Nav() {
       >
         {visible && (
           <button
-            className="text-3xl font-medium transition cursor-pointer hover:text-main mr-8"
+            className="text-3xl font-normal transition cursor-pointer hover:text-main mr-8"
             onClick={() => handleToggle(false)}
             aria-label="Hide menu"
           >

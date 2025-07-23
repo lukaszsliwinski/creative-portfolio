@@ -16,7 +16,7 @@ export default function Footer() {
           href="https://github.com/lukaszsliwinski/"
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-2"
+          className="mx-2 hover:text-main"
         >
           <FontAwesomeIcon icon={faGithub} size="lg" />
         </a>
@@ -24,7 +24,7 @@ export default function Footer() {
           href="https://www.linkedin.com/in/lsliwinski/"
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-2"
+          className="mx-2 hover:text-main"
         >
           <FontAwesomeIcon icon={faLinkedin} size="lg" />
         </a>

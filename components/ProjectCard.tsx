@@ -30,7 +30,7 @@ export default function ProjectCard({
 
       <h3 className="w-full font-normal text-2xl">{title}</h3>
       <div className="w-full flex space-x-3 py-3">{children}</div>
-      <div className="whitespace-pre-line text-xs/6 text-justify h-22 overflow-y-hidden">
+      <div className="whitespace-pre-line text-xs/6 text-justify h-24 overflow-y-hidden">
         {description}
       </div>
 
