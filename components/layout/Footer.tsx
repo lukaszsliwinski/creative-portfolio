@@ -9,7 +9,7 @@ export default function Footer() {
   const year = moment().year();
 
   return (
-    <footer className="flex justify-between items-center px-5 py-4 mt-8 border-t">
+    <footer className="absolute bottom-0 flex justify-between items-center px-5 py-4 mt-8 border-t w-screen">
       <div className="text-sm font-light">&copy; 2023-{year} ŁUKASZ ŚLIWIŃSKI</div>
       <div>
         <a

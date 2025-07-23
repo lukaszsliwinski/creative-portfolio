@@ -3,7 +3,6 @@ import Background from '@/components/layout/Background';
 import Landing from '@/components/layout/Landing';
 import About from '@/components/layout/About';
 import Projects from '@/components/layout/Projects';
-import Footer from '@/components/layout/Footer';
 
 import { Inter } from 'next/font/google';
 
@@ -22,7 +21,6 @@ export default function HomePage() {
         <Landing />
         <About />
         <Projects />
-        <Footer />
       </main>
     </LanguageProvider>
   );

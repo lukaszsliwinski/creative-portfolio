@@ -27,21 +27,21 @@ export default function ProjectCard({
 }: IProjectCard) {
   // Getting the features array from the translation files
   return (
-    <div className="w-xl mx-8 my-5 px-10 py-8 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
+    <div className="w-md mx-4 my-5 px-8 py-6 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
 
       <h3 className="w-full font-normal text-2xl">{title}</h3>
-      <div className="w-full flex space-x-3 pt-4 pb-6">{children}</div>
-      <div className="whitespace-pre-line text-xs/6 text-justify h-30 overflow-y-hidden">
+      <div className="w-full flex space-x-3 py-3">{children}</div>
+      <div className="whitespace-pre-line text-xs/6 text-justify h-22 overflow-y-hidden">
         {description}
       </div>
 
-      <div className="mt-8">
+      <div className="mt-6">
         <Image
           className="mx-auto rounded"
           src={previewSrc}
           alt="apps screen"
-          width="450"
-          height="300"
+          width="400"
+          height="260"
           draggable={false}
         />
         <div className="mt-4 flex flex-wrap justify-center">

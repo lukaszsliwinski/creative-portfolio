@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Header from '../Header';
 import ProjectCard from '../ProjectCard';
+import Footer from '@/components/layout/Footer';
 
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -164,7 +165,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects">
+    <section className="relative min-h-screen" id="projects">
       <Header text={t('nav.projects')} />
       <div
         onMouseEnter={handleMouseEnter}
@@ -204,6 +205,8 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      <Footer />
     </section>
   );
 }

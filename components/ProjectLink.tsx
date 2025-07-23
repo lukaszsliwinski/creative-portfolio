@@ -7,7 +7,7 @@ export default function ProjectLink({ href, text, icon }: { href: string, text: 
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative w-24 h-8 overflow-hidden group cursor-pointer border rounded py-1 text-center mx-2"
+      className="relative w-24 h-9 overflow-hidden group cursor-pointer border rounded py-1 text-center mx-2"
     >
       <span className="block transition-transform duration-200 group-hover:-translate-y-8">
         {text}&nbsp;
