@@ -33,7 +33,6 @@ export default function Projects() {
     {
       previewSrc: '/gif/digit-preview.gif',
       title: 'Digit Recognizer',
-      app: 'digit',
       description: t('projects.digit'),
       sourceUrl: 'https://github.com/lukaszsliwinski/digit-recognizer/',
       linkUrl: 'https://digitrecognizer.lukaszsliwinski.pl',
@@ -51,7 +50,6 @@ export default function Projects() {
     {
       previewSrc: '/gif/radio-preview.gif',
       title: 'Radio App',
-      app: 'radio',
       description: t('projects.radio'),
       sourceUrl: 'https://github.com/lukaszsliwinski/radio/',
       linkUrl: 'https://radio.lukaszsliwinski.pl',
@@ -66,7 +64,6 @@ export default function Projects() {
     {
       previewSrc: '/gif/vocabulary-preview.gif',
       title: 'Vocabulary Quiz',
-      app: 'vocabularyquiz',
       description: t('projects.vocabularyquiz'),
       sourceUrl: 'https://github.com/lukaszsliwinski/vocabulary-quiz/',
       linkUrl: 'https://vocabularyquiz.lukaszsliwinski.pl',
@@ -81,7 +78,6 @@ export default function Projects() {
     {
       previewSrc: '/gif/solo-preview.gif',
       title:'Personal Music Website',
-      app:'music',
       description: t('projects.music'),
       sourceUrl:'https://github.com/lukaszsliwinski/solo-website/',
       linkUrl:'https://lukaszsliwinski.pl',
@@ -94,7 +90,6 @@ export default function Projects() {
     {
       previewSrc: '/gif/ksmb-preview.gif',
       title:'KSMicroband Website',
-      app:'ksmicroband',
       description: t('projects.ksmicroband'),
       sourceUrl:'https://github.com/lukaszsliwinski/ksmb-v2/',
       linkUrl:'https://ksmicroband.pl/',
@@ -201,10 +196,8 @@ export default function Projects() {
           {[...apps, ...apps].map((item, i) => (
             <ProjectCard
               key={i}
-
               previewSrc={item.previewSrc}
               title={item.title}
-              app={item.app}
               description={item.description}
               sourceUrl={item.sourceUrl}
               linkUrl={item.linkUrl}
