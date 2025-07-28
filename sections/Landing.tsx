@@ -252,7 +252,7 @@ export default function Landing() {
           variants={techVariants}
         >
           <div
-            className="flex items-center h-52 mt-12 overflow-y-hidden">
+            className="flex items-center h-52 mt-12 overflow-y-hidden cursor-w-resize">
             <Canvas
               camera={{ position: [0, 1, 10], fov: 50 }}
               style={{ 
