@@ -2,23 +2,11 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
+import HoverFlip from '@/components/HoverFlip';
 import ToggleLanguage from '@/components/ToggleLanguage';
 
-const ANIMATION_DURATION = 800; // ms
+const ANIMATION_DURATION = 800;
 const DURATION_CLASS = `duration-${ANIMATION_DURATION}`;
-
-function NavItem({ href, label }: { href: string; label: string }) {
-  return (
-    <li className="relative h-7 overflow-hidden group cursor-pointer">
-      <span className="block transition-transform duration-200 group-hover:-translate-y-7">
-        {label}
-      </span>
-      <span className="block absolute left-0 top-7 w-full transition-transform duration-200 group-hover:-translate-y-7 text-main">
-        <a href={href}>{label}</a>
-      </span>
-    </li>
-  );
-}
 
 export default function Nav() {
   const { t } = useLanguage();
@@ -55,8 +43,16 @@ export default function Nav() {
           </button>
         )}
         <ul className="flex justify-center font-light space-x-8 flex-1 my-1">
-          <NavItem href="#about" label={t('nav.about')} />
-          <NavItem href="#projects" label={t('nav.projects')} />
+          <li>
+            <a href="#about">
+              <HoverFlip text={t('nav.about')} size='sm'/>
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              <HoverFlip text={t('nav.projects')} size='sm' />
+            </a>
+          </li>
         </ul>
         <ToggleLanguage />
       </nav>

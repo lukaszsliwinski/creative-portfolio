@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useAnimation, easeInOut, easeIn, easeOut } from "framer-motion";
+import { motion, useAnimation, easeInOut, easeOut } from "framer-motion";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
@@ -9,7 +9,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 import Nav from "@/sections/Nav";
 import TechCarousel from '@/components/TechCarousel';
-import LandingLinkIcon from "@/components/LandingLinkIcon";
+import HoverFlip from "@/components/HoverFlip";
 
 export default function Landing() {
   const [xCurtainOffset, setXCurtainOffset] = useState(0);
@@ -227,21 +227,21 @@ export default function Landing() {
                 href="https://github.com/twoj-login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group text-3xl h-11 overflow-hidden"
+                className="relative group text-3xl overflow-hidden"
                 aria-label="GitHub"
                 variants={iconVariants}
               >
-                <LandingLinkIcon icon={faGithub} />
+                <HoverFlip icon={faGithub} size='lg' />
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/twoj-login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group text-3xl h-11 overflow-hidden"
+                className="relative group text-3xl overflow-hidden"
                 aria-label="LinkedIn"
                 variants={iconVariants}
               >
-                <LandingLinkIcon icon={faLinkedin} />
+                <HoverFlip icon={faLinkedin} size='lg' />
               </motion.a>
             </motion.div>
           </div>

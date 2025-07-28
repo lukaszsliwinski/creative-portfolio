@@ -1,13 +1,12 @@
 import { ReactNode } from 'react';
 import Image from 'next/image';
 import { faCode, faLink } from '@fortawesome/free-solid-svg-icons';
-import ProjectLink from './ProjectLink';
+import HoverFlip from '@/components/HoverFlip';
 
 export interface IProjectCard {
   children: ReactNode;
   previewSrc: string;
   title: string;
-  app: string;
   description: string;
   sourceUrl: string;
   linkUrl: string;
@@ -19,7 +18,6 @@ export default function ProjectCard({
   children,
   previewSrc,
   title,
-  app,
   description,
   sourceUrl,
   linkUrl
@@ -44,8 +42,22 @@ export default function ProjectCard({
           draggable={false}
         />
         <div className="mt-4 flex flex-wrap justify-center">
-          <ProjectLink href={sourceUrl} text='Code' icon={faCode} />
-          <ProjectLink href={linkUrl} text='Link' icon={faLink} />
+          <a
+            href={sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex justify-center items-center w-24 h-9 border rounded mx-2"
+          >
+            <HoverFlip text='Code' icon={faCode} size='sm' />
+          </a>
+          <a
+            href={linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex justify-center items-center w-24 h-9 border rounded mx-2"
+          >
+            <HoverFlip text='Link' icon={faLink} size='sm' />
+          </a>
         </div>
       </div>
     </div>

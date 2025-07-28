@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import HoverFlip from '@/components/HoverFlip';
 
 export default function ToggleLanguage() {
   const { setLanguage, language } = useLanguage();
@@ -34,19 +35,7 @@ export default function ToggleLanguage() {
           <path d="M32 56a24 24 0 1 1 16.97-7.03" />
           <polygon points="51,51 42,56 47,47" fill="currentColor" />
         </svg>
-        {/* Animated language text */}
-        <span className="relative z-10 flex flex-col items-center justify-center h-8 overflow-hidden select-none pl-0.5">
-          <span
-            className="block transition-transform duration-300 group-hover:-translate-y-7"
-          >
-            {language === 'pl' ? 'EN' : 'PL'}
-          </span>
-          <span
-            className="block absolute top-7 left-0 right-0 transition-transform text-main duration-300 group-hover:-translate-y-6.5"
-          >
-            {language === 'pl' ? 'EN' : 'PL'}
-          </span>
-        </span>
+        <HoverFlip text={language === 'pl' ? 'EN' : 'PL'} size='sm' />
       </span>
     </button>
   );
