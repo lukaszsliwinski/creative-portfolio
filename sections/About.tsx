@@ -38,7 +38,7 @@ export default function About() {
   }, [inView2]);
 
   return (
-    <section className="overflow-x-hidden" id="about">
+    <section className="overflow-x-hidden min-h-screen" id="about">
       <Header text={t('nav.about')} />
       <div className="grid grid-cols-4 gap-y-8 w-5xl mx-auto">
         <motion.div
