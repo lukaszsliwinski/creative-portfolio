@@ -9,14 +9,15 @@ import { Inter } from 'next/font/google';
 const inter = Inter({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-inter',
+  variable: '--font-inter'
 });
-
 
 export default function HomePage() {
   return (
     <LanguageProvider>
-      <main className={`${inter.variable} font-sans tracking-[0.165em] text-white text-sm leading-7 select-none font-extralight`}>
+      <main
+        className={`${inter.variable} font-sans tracking-[0.165em] text-white text-sm leading-7 select-none font-extralight`}
+      >
         <Background />
         <Landing />
         <About />

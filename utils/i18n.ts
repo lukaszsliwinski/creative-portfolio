@@ -5,7 +5,7 @@ export type Lang = 'en' | 'pl';
 
 const translations: Record<Lang, Record<string, string>> = {
   en,
-  pl,
+  pl
 };
 
 export function getTranslator(lang: Lang) {

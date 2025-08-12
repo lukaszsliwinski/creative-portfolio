@@ -9,17 +9,13 @@ export default function Header({ text }: HeaderProps) {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 90%', 'end 80%'],
+    offset: ['start 90%', 'end 80%']
   });
 
   const color = useTransform(scrollYProgress, [0, 1], ['#6b7280', '#ffffff']);
 
   return (
-    <motion.h2
-      ref={ref}
-      className="font-light text-3xl text-center pt-24 pb-12"
-      style={{ color }}
-    >
+    <motion.h2 ref={ref} className="font-light text-3xl text-center pt-24 pb-12" style={{ color }}>
       {text}
     </motion.h2>
   );

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --main-rgb: 165, 100, 230;
@@ -14,7 +14,6 @@
   --spacing-screen-mobile: calc(var(--vh, 1vh) * 100); */
 }
 
-
 /* scrollbar */
 html {
   scroll-behavior: smooth;
@@ -26,7 +25,9 @@ body {
 }
 
 #site-background {
-  background: radial-gradient(ellipse at 60% 30%, #232b4599 0%, #00000000 60%), linear-gradient(to bottom, #000000 0%, rgba(var(--main-rgb), 0.09) 100%);
+  background:
+    radial-gradient(ellipse at 60% 30%, #232b4599 0%, #00000000 60%),
+    linear-gradient(to bottom, #000000 0%, rgba(var(--main-rgb), 0.09) 100%);
 }
 
 .animate-whirl {
@@ -34,6 +35,10 @@ body {
 }
 
 @keyframes whirl {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(1620deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1620deg);
+  }
 }

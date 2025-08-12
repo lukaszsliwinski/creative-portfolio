@@ -1,4 +1,4 @@
-// Navigation bar with 
+// Navigation bar with
 
 'use client';
 import { useState } from 'react';
@@ -19,7 +19,7 @@ export default function Nav() {
     <>
       {/* Toggle menu open button, always visible on the left */}
       {!visible && (
-        <button 
+        <button
           className="fixed top-4 left-4 z-50 text-3xl transition cursor-pointer hover:text-main"
           onClick={() => handleToggle(true)}
           aria-label="Show menu"
@@ -44,12 +44,12 @@ export default function Nav() {
         <ul className="flex justify-center font-light space-x-8 flex-1 my-1">
           <li>
             <a href="#about">
-              <HoverFlip text={t('nav.about')} size='sm'/>
+              <HoverFlip text={t('nav.about')} size="sm" />
             </a>
           </li>
           <li>
             <a href="#projects">
-              <HoverFlip text={t('nav.projects')} size='sm' />
+              <HoverFlip text={t('nav.projects')} size="sm" />
             </a>
           </li>
         </ul>

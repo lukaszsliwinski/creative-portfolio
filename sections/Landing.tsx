@@ -22,7 +22,7 @@ export default function Landing() {
     setXCurtainOffset(window.innerWidth / 2);
   }, []);
 
-  const curtainSpeedFactor = .8;
+  const curtainSpeedFactor = 0.8;
 
   // animation controls
   const lineControls = useAnimation();
@@ -38,49 +38,49 @@ export default function Landing() {
   const lineVariants = {
     visible: {
       height: '100%',
-      transition: { duration: .5 * curtainSpeedFactor, ease: easeInOut }
+      transition: { duration: 0.5 * curtainSpeedFactor, ease: easeInOut }
     },
     hidden: {
       opacity: 0,
       transition: { duration: 0.01 }
     }
-  }
+  };
 
   const leftCurtainVariants = {
     open: {
       x: -xCurtainOffset,
       transition: { duration: curtainSpeedFactor, ease: easeInOut }
     }
-  }
+  };
 
   const rightCurtainVariants = {
     open: {
       x: xCurtainOffset,
       transition: { duration: curtainSpeedFactor, ease: easeInOut }
     }
-  }
+  };
 
   const h1Variants = {
-    visible: {transition: { staggerChildren: 0.04 }}
-  }
+    visible: { transition: { staggerChildren: 0.04 } }
+  };
 
   const h2Variants = {
-    visible: {transition: { staggerChildren: 0.04 }}
-  }
+    visible: { transition: { staggerChildren: 0.04 } }
+  };
 
   const charVariants = {
     hidden: { display: 'none' },
-    visible: { display: 'inline-block', transition: { duration: 0 } },
-  }
+    visible: { display: 'inline-block', transition: { duration: 0 } }
+  };
 
   const iconsContainerVariants = {
     visible: {
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
+        delayChildren: 0.1
+      }
     }
-  }
+  };
 
   const iconVariants = {
     hidden: { opacity: 0, scale: 0 },
@@ -89,9 +89,9 @@ export default function Landing() {
       scale: [0, 1.15, 1],
       transition: {
         duration: 0.5,
-        ease: easeInOut,
-      },
-    },
+        ease: easeInOut
+      }
+    }
   };
 
   const techVariants = {
@@ -104,18 +104,18 @@ export default function Landing() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: easeOut,
+        ease: easeOut
       }
     }
-  }
+  };
 
   const navVariants = {
     hidden: { x: '-100%', opacity: 0 },
     visible: {
       x: '0%',
       opacity: 1,
-      transition: { duration: 0.6, ease: easeInOut, delay: 0.5 },
-    },
+      transition: { duration: 0.6, ease: easeInOut, delay: 0.5 }
+    }
   };
 
   // animation queue
@@ -126,13 +126,13 @@ export default function Landing() {
 
       await Promise.all([
         leftCurtainControls.start('open'),
-        rightCurtainControls.start('open'),
+        rightCurtainControls.start('open')
       ]).then(() => setH1CursorVisible(true));
 
       await h1Controls.start('visible').then(() => {
         setH1CursorVisible(false);
         setH2CursorVisible(true);
-      })
+      });
       await h2Controls.start('visible').then(() => setH2CursorVisible(false));
       iconsControls.start('visible');
       techControls.start('visible');
@@ -145,14 +145,11 @@ export default function Landing() {
   // split headers to characters function
   const splitToCharSpans = (text: string) => {
     return text.split('').map((char, i) => (
-      <motion.span
-        key={i}
-        variants={charVariants}
-      >
+      <motion.span key={i} variants={charVariants}>
         {char === ' ' ? '\u00A0' : char}
       </motion.span>
     ));
-  }
+  };
 
   return (
     <section>
@@ -168,7 +165,7 @@ export default function Landing() {
           variants={lineVariants}
           initial={{ height: 0, opacity: 1 }}
         />
-        
+
         {/* Left curtain */}
         <motion.div
           className="w-1/2 h-full bg-black"
@@ -183,24 +180,17 @@ export default function Landing() {
           animate={rightCurtainControls}
           variants={rightCurtainVariants}
           initial={{ x: 0 }}
-
         />
       </div>
-      
+
       {/* Navigation bar container */}
-      <motion.div
-        initial="hidden"
-        animate={navControls}
-        variants={navVariants}
-        className="w-full"
-      >
+      <motion.div initial="hidden" animate={navControls} variants={navVariants} className="w-full">
         <Nav />
       </motion.div>
 
       {/* Main page */}
-      <div className="h-screen flex flex-col justify-center items-center">  
+      <div className="h-screen flex flex-col justify-center items-center">
         <div className="mt-8 text-center tracking-[.4em]">
-          
           {/* Headers */}
           <motion.h1
             className="mb-4 font-light tracking-[.2em] text-7xl ml-6"
@@ -209,7 +199,11 @@ export default function Landing() {
             initial="hidden"
           >
             {splitToCharSpans('ŁUKASZ ŚLIWIŃSKI')}
-            <span className={`text-purple-900 opacity-80 ${h1CursorVisible ? 'visible' : 'invisible'}`}>|</span>
+            <span
+              className={`text-purple-900 opacity-80 ${h1CursorVisible ? 'visible' : 'invisible'}`}
+            >
+              |
+            </span>
           </motion.h1>
           <motion.h2
             className="tracking-[.3em] text-3xl text-neutral-400 mt-4 ml-5"
@@ -218,7 +212,11 @@ export default function Landing() {
             initial="hidden"
           >
             {splitToCharSpans('FRONT-END DEVELOPER')}
-            <span className={`text-purple-900 opacity-80 ${h2CursorVisible ? 'visible' : 'invisible'}`}>|</span>
+            <span
+              className={`text-purple-900 opacity-80 ${h2CursorVisible ? 'visible' : 'invisible'}`}
+            >
+              |
+            </span>
           </motion.h2>
 
           {/* Link icons */}
@@ -237,7 +235,7 @@ export default function Landing() {
                 aria-label="GitHub"
                 variants={iconVariants}
               >
-                <HoverFlip icon={faGithub} size='lg' />
+                <HoverFlip icon={faGithub} size="lg" />
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/twoj-login"
@@ -247,26 +245,22 @@ export default function Landing() {
                 aria-label="LinkedIn"
                 variants={iconVariants}
               >
-                <HoverFlip icon={faLinkedin} size='lg' />
+                <HoverFlip icon={faLinkedin} size="lg" />
               </motion.a>
             </motion.div>
           </div>
         </div>
 
         {/* Rotating balls with technologies icons */}
-        <motion.div
-          initial="hidden"
-          animate={techControls}
-          variants={techVariants}
-        >
-          <div
-            className="flex items-center h-52 mt-12 overflow-y-hidden cursor-w-resize">
+        <motion.div initial="hidden" animate={techControls} variants={techVariants}>
+          <div className="flex items-center h-52 mt-12 overflow-y-hidden cursor-w-resize">
             <Canvas
               camera={{ position: [0, 1, 10], fov: 50 }}
-              style={{ 
+              style={{
                 width: '1000px',
                 height: '70vw',
-                maxHeight: '800px' }}
+                maxHeight: '800px'
+              }}
             >
               <ambientLight intensity={1.8} />
               <directionalLight position={[5, 5, 5]} />

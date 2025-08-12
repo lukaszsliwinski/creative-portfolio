@@ -38,7 +38,7 @@ export default function ToggleLanguage() {
           <path d="M32 56a24 24 0 1 1 16.97-7.03" />
           <polygon points="51,51 42,56 47,47" fill="currentColor" />
         </svg>
-        <HoverFlip text={language === 'pl' ? 'EN' : 'PL'} size='sm' />
+        <HoverFlip text={language === 'pl' ? 'EN' : 'PL'} size="sm" />
       </span>
     </button>
   );

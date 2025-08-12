@@ -20,5 +20,5 @@ export const iconPaths = [
   '/icons/openvino.png',
   '/icons/mongo.png',
   '/icons/mysql.png',
-  '/icons/git.png',
+  '/icons/git.png'
 ];

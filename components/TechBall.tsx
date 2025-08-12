@@ -18,10 +18,7 @@ export default function TechBall({ position, texture }: TechBallProps) {
   const quaternion = new THREE.Quaternion().setFromRotationMatrix(lookAtMatrix);
 
   // Flip decal to face correctly
-  const rotationFix = new THREE.Quaternion().setFromAxisAngle(
-    new THREE.Vector3(0, 1, 0),
-    Math.PI
-  );
+  const rotationFix = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI);
   quaternion.multiply(rotationFix);
 
   return (

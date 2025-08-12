@@ -27,12 +27,10 @@ export interface ProjectCardProps {
   linkUrl: string;
 }
 
-
 export interface TechBallProps {
   position: [number, number, number];
   texture: Texture;
 }
-
 
 // context/
 export interface LanguageContextProps {

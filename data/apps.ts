@@ -46,10 +46,10 @@ export const apps = [
   },
   {
     previewSrc: '/gif/solo-preview.gif',
-    title:'Personal Music Website',
+    title: 'Personal Music Website',
     descriptionKey: 'projects.music',
-    sourceUrl:'https://github.com/lukaszsliwinski/solo-website/',
-    linkUrl:'https://lukaszsliwinski.pl',
+    sourceUrl: 'https://github.com/lukaszsliwinski/solo-website/',
+    linkUrl: 'https://lukaszsliwinski.pl',
     technologies: [
       { name: 'TypeScript', src: '/icons/typescript.png' },
       { name: 'Next.js', src: '/icons/next.png' },
@@ -58,10 +58,10 @@ export const apps = [
   },
   {
     previewSrc: '/gif/ksmb-preview.gif',
-    title:'KSMicroband Website',
+    title: 'KSMicroband Website',
     descriptionKey: 'projects.ksmicroband',
-    sourceUrl:'https://github.com/lukaszsliwinski/ksmb-v2/',
-    linkUrl:'https://ksmicroband.pl/',
+    sourceUrl: 'https://github.com/lukaszsliwinski/ksmb-v2/',
+    linkUrl: 'https://ksmicroband.pl/',
     technologies: [
       { name: 'JavaScript', src: '/icons/javascript.png' },
       { name: 'React.js', src: '/icons/react.png' },

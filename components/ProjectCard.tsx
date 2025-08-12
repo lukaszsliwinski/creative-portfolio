@@ -15,7 +15,6 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="w-md mx-4 my-5 px-8 py-6 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
-
       <h3 className="w-full font-normal text-2xl">{title}</h3>
       <div className="w-full flex space-x-3 py-3">{children}</div>
       <div className="whitespace-pre-line text-xs/6 text-justify h-24 overflow-y-hidden">
@@ -38,7 +37,7 @@ export default function ProjectCard({
             rel="noopener noreferrer"
             className="inline-flex justify-center items-center w-24 h-9 border rounded mx-2"
           >
-            <HoverFlip text='Code' icon={faCode} size='sm' />
+            <HoverFlip text="Code" icon={faCode} size="sm" />
           </a>
           <a
             href={linkUrl}
@@ -46,7 +45,7 @@ export default function ProjectCard({
             rel="noopener noreferrer"
             className="inline-flex justify-center items-center w-24 h-9 border rounded mx-2"
           >
-            <HoverFlip text='Link' icon={faLink} size='sm' />
+            <HoverFlip text="Link" icon={faLink} size="sm" />
           </a>
         </div>
       </div>

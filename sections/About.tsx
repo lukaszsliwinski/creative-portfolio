@@ -23,7 +23,7 @@ export default function About() {
           viewport={{ amount: 0.3, once: false }}
           transition={transition}
         >
-          <BioCard text={t("about.bio1")} />
+          <BioCard text={t('about.bio1')} />
         </motion.div>
         <motion.div
           className="col-span-3 col-start-2"
@@ -32,7 +32,7 @@ export default function About() {
           viewport={{ amount: 0.3, once: false }}
           transition={transition}
         >
-          <BioCard text={t("about.bio2")} />
+          <BioCard text={t('about.bio2')} />
         </motion.div>
       </div>
     </section>
