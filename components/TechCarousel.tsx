@@ -1,35 +1,13 @@
-import { useFrame, useLoader } from '@react-three/fiber'
-import { TextureLoader } from 'three'
-import { useRef } from 'react'
-import * as THREE from 'three'
+// Carousel component with rotating balls with technologies icons
 
-import TechBall from './TechBall';
+'use client';
+import { useFrame, useLoader } from '@react-three/fiber';
+import { TextureLoader } from 'three';
+import { useRef } from 'react';
+import * as THREE from 'three';
 
-// List of icon paths located in the public/icons folder
-const iconPaths = [
-  '/icons/typescript.png',
-  '/icons/javascript.png',
-  '/icons/react.png',
-  '/icons/next.png',
-  '/icons/angular.png',
-  '/icons/redux.png',
-  '/icons/tailwind.png',
-  '/icons/flowbite.png',
-  '/icons/scss.png',
-  '/icons/bootstrap.png',
-  '/icons/jquery.png',
-  '/icons/python.png',
-  '/icons/node.png',
-  '/icons/php.png',
-  '/icons/flask.png',
-  '/icons/pytorch.png',
-  '/icons/colab.png',
-  '/icons/openvino.png',
-  '/icons/mongo.png',
-  '/icons/mysql.png',
-  '/icons/git.png',
-]
-
+import TechBall from '@/components/TechBall';
+import { iconPaths } from '@/data/iconPaths';
 
 export default function TechCarousel() {
   const groupRef = useRef<THREE.Group>(null!)

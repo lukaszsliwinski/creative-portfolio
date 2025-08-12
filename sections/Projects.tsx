@@ -1,13 +1,16 @@
+// Section with projects moving from right to left
+
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import { motion, useAnimation, useInView, easeInOut } from 'framer-motion';
+
 import Header from '@/components/Header';
 import ProjectCard from '@/components/ProjectCard';
 import Footer from '@/sections/Footer';
-
 import { useLanguage } from '@/context/LanguageContext';
 
-import { motion, useAnimation, useInView, easeInOut } from 'framer-motion';
+import { apps } from '@/data/apps';
 
 export default function Projects() {
   const [isHovered, setIsHovered] = useState(false);
@@ -20,92 +23,14 @@ export default function Projects() {
   const transition = { duration: 0.6, ease: easeInOut };
 
   useEffect(() => {
-    if (inView) {
-      animOpacity.start({ opacity: 1, transition });
-    } else {
-      animOpacity.start({ opacity: 0, transition });
-    }
+    animOpacity.start({ opacity: inView ? 1 : 0, transition });
   }, [inView]);
 
   const { t } = useLanguage();
 
-  const apps = [
-    {
-      previewSrc: '/gif/digit-preview.gif',
-      title: 'Digit Recognizer',
-      description: t('projects.digit'),
-      sourceUrl: 'https://github.com/lukaszsliwinski/digit-recognizer/',
-      linkUrl: 'https://digitrecognizer.lukaszsliwinski.pl',
-      technologies: [
-        { name: 'TypeScript', src: '/icons/typescript.png' },
-        { name: 'React.js', src: '/icons/react.png' },
-        { name: 'Tailwind CSS', src: '/icons/tailwind.png' },
-        { name: 'Python', src: '/icons/python.png' },
-        { name: 'Flask', src: '/icons/flask.png' },
-        { name: 'PyTorch', src: '/icons/pytorch.png' },
-        { name: 'Google Colab', src: '/icons/colab.png' },
-        { name: 'OpenVINO', src: '/icons/openvino.png' }
-      ]
-    },
-    {
-      previewSrc: '/gif/radio-preview.gif',
-      title: 'Radio App',
-      description: t('projects.radio'),
-      sourceUrl: 'https://github.com/lukaszsliwinski/radio/',
-      linkUrl: 'https://radio.lukaszsliwinski.pl',
-      technologies: [
-        { name: 'TypeScript', src: '/icons/typescript.png' },
-        { name: 'Angular', src: '/icons/angular.png' },
-        { name: 'Scss', src: '/icons/scss.png' },
-        { name: 'Node.js', src: '/icons/node.png' },
-        { name: 'MongoDB', src: '/icons/mongo.png' }
-      ]
-    },
-    {
-      previewSrc: '/gif/vocabulary-preview.gif',
-      title: 'Vocabulary Quiz',
-      description: t('projects.vocabularyquiz'),
-      sourceUrl: 'https://github.com/lukaszsliwinski/vocabulary-quiz/',
-      linkUrl: 'https://vocabularyquiz.lukaszsliwinski.pl',
-      technologies: [
-        { name: 'TypeScript', src: '/icons/typescript.png' },
-        { name: 'Angular', src: '/icons/angular.png' },
-        { name: 'Scss', src: '/icons/scss.png' },
-        { name: 'Node.js', src: '/icons/node.png' },
-        { name: 'MongoDB', src: '/icons/mongo.png' }
-      ]
-    },
-    {
-      previewSrc: '/gif/solo-preview.gif',
-      title:'Personal Music Website',
-      description: t('projects.music'),
-      sourceUrl:'https://github.com/lukaszsliwinski/solo-website/',
-      linkUrl:'https://lukaszsliwinski.pl',
-      technologies: [
-        { name: 'TypeScript', src: '/icons/typescript.png' },
-        { name: 'Next.js', src: '/icons/next.png' },
-        { name: 'Tailwind CSS', src: '/icons/tailwind.png' }
-      ]
-    },
-    {
-      previewSrc: '/gif/ksmb-preview.gif',
-      title:'KSMicroband Website',
-      description: t('projects.ksmicroband'),
-      sourceUrl:'https://github.com/lukaszsliwinski/ksmb-v2/',
-      linkUrl:'https://ksmicroband.pl/',
-      technologies: [
-        { name: 'JavaScript', src: '/icons/javascript.png' },
-        { name: 'React.js', src: '/icons/react.png' },
-        { name: 'Tailwind CSS', src: '/icons/tailwind.png' },
-        { name: 'Node.js', src: '/icons/node.png' }
-      ]
-    }
-  ];
-
   const dragStartX = useRef(0);
   const lastX = useRef(0);
   const x = useRef(0);
-
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Animate continuous scroll when not paused or dragging
@@ -198,7 +123,7 @@ export default function Projects() {
               key={i}
               previewSrc={item.previewSrc}
               title={item.title}
-              description={item.description}
+              description={t(item.descriptionKey)}
               sourceUrl={item.sourceUrl}
               linkUrl={item.linkUrl}
             >
