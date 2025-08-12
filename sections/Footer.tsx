@@ -1,10 +1,9 @@
+// Footer with github and linkedin links
+
 import moment from 'moment';
-
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
 import HoverFlip from '@/components/HoverFlip';
 
-// Footer component
 export default function Footer() {
   // Getting the current year using moment
   const year = moment().year();

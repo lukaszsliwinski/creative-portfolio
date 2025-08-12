@@ -1,3 +1,5 @@
+// Hover flip effect – smooth upward flip of icon/text on hover
+
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

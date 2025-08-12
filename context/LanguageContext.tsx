@@ -1,5 +1,6 @@
-'use client';
+// Language context provider with translation support based on selected language
 
+'use client';
 import { createContext, useContext, useState, ReactNode, useMemo } from 'react';
 import { Lang, getTranslator } from '@/utils/i18n';
 
@@ -13,6 +14,8 @@ const LanguageContext = createContext<LanguageContextProps | undefined>(undefine
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Lang>('en');
+
+  // Memoized translator function based on the selected language
   const t = useMemo(() => getTranslator(language), [language]);
 
   return (
@@ -22,6 +25,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+// Hook to access language context
 export const useLanguage = (): LanguageContextProps => {
   const context = useContext(LanguageContext);
   if (!context) {

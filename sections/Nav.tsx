@@ -1,12 +1,10 @@
+// Navigation bar with 
+
 'use client';
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-
 import HoverFlip from '@/components/HoverFlip';
 import ToggleLanguage from '@/components/ToggleLanguage';
-
-const ANIMATION_DURATION = 800;
-const DURATION_CLASS = `duration-${ANIMATION_DURATION}`;
 
 export default function Nav() {
   const { t } = useLanguage();
@@ -21,7 +19,7 @@ export default function Nav() {
     <>
       {/* Toggle menu open button, always visible on the left */}
       {!visible && (
-        <button
+        <button 
           className="fixed top-4 left-4 z-50 text-3xl transition cursor-pointer hover:text-main"
           onClick={() => handleToggle(true)}
           aria-label="Show menu"
@@ -29,9 +27,10 @@ export default function Nav() {
           ☰
         </button>
       )}
+
       {/* Navigation with slide/fade animation */}
       <nav
-        className={`text-lg fixed w-full px-6 py-4 bg-black/20 backdrop-blur-lg flex items-center justify-center z-40 transition-all ease-in-out ${DURATION_CLASS} ${visible ? 'translate-x-0 opacity-100 pointer-events-auto' : '-translate-x-full opacity-0 pointer-events-none'}`}
+        className={`text-lg fixed w-full px-6 py-4 bg-black/20 backdrop-blur-lg flex items-center justify-center z-40 transition-all ease-in-out duration-800 ${visible ? 'translate-x-0 opacity-100 pointer-events-auto' : '-translate-x-full opacity-0 pointer-events-none'}`}
       >
         {visible && (
           <button

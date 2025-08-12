@@ -1,15 +1,15 @@
-'use client';
+// Animated landing page with sequentially appearing elements on the page
 
-import { useState, useEffect, useRef } from "react";
-import { motion, useAnimation, easeInOut, easeOut } from "framer-motion";
+'use client';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useAnimation, easeInOut, easeOut } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-import Nav from "@/sections/Nav";
+import Nav from '@/sections/Nav';
 import TechCarousel from '@/components/TechCarousel';
-import HoverFlip from "@/components/HoverFlip";
+import HoverFlip from '@/components/HoverFlip';
 
 export default function Landing() {
   const [xCurtainOffset, setXCurtainOffset] = useState(0);
@@ -37,7 +37,7 @@ export default function Landing() {
   // motion variants
   const lineVariants = {
     visible: {
-      height: "100%",
+      height: '100%',
       transition: { duration: .5 * curtainSpeedFactor, ease: easeInOut }
     },
     hidden: {
@@ -118,14 +118,15 @@ export default function Landing() {
     },
   };
 
+  // animation queue
   useEffect(() => {
     (async () => {
-      await lineControls.start("visible");
-      await lineControls.start("hidden");
+      await lineControls.start('visible');
+      await lineControls.start('hidden');
 
       await Promise.all([
-        leftCurtainControls.start("open"),
-        rightCurtainControls.start("open"),
+        leftCurtainControls.start('open'),
+        rightCurtainControls.start('open'),
       ]).then(() => setH1CursorVisible(true));
 
       await h1Controls.start('visible').then(() => {
@@ -155,6 +156,7 @@ export default function Landing() {
 
   return (
     <section>
+      {/* Curtains */}
       <div
         ref={curtainRef}
         className="fixed top-0 left-0 w-full h-screen z-100 flex overflow-hidden"
@@ -185,6 +187,7 @@ export default function Landing() {
         />
       </div>
       
+      {/* Navigation bar container */}
       <motion.div
         initial="hidden"
         animate={navControls}
@@ -194,8 +197,11 @@ export default function Landing() {
         <Nav />
       </motion.div>
 
+      {/* Main page */}
       <div className="h-screen flex flex-col justify-center items-center">  
         <div className="mt-8 text-center tracking-[.4em]">
+          
+          {/* Headers */}
           <motion.h1
             className="mb-4 font-light tracking-[.2em] text-7xl ml-6"
             animate={h1Controls}
@@ -205,7 +211,6 @@ export default function Landing() {
             {splitToCharSpans('ŁUKASZ ŚLIWIŃSKI')}
             <span className={`text-purple-900 opacity-80 ${h1CursorVisible ? 'visible' : 'invisible'}`}>|</span>
           </motion.h1>
-          
           <motion.h2
             className="tracking-[.3em] text-3xl text-neutral-400 mt-4 ml-5"
             animate={h2Controls}
@@ -216,6 +221,7 @@ export default function Landing() {
             <span className={`text-purple-900 opacity-80 ${h2CursorVisible ? 'visible' : 'invisible'}`}>|</span>
           </motion.h2>
 
+          {/* Link icons */}
           <div className="mt-6">
             <motion.div
               className="flex gap-6 justify-center"
@@ -246,6 +252,8 @@ export default function Landing() {
             </motion.div>
           </div>
         </div>
+
+        {/* Rotating balls with technologies icons */}
         <motion.div
           initial="hidden"
           animate={techControls}

@@ -1,3 +1,5 @@
+// Project card component with description, technologies used, link to source code and link to app
+
 import { ReactNode } from 'react';
 import Image from 'next/image';
 import { faCode, faLink } from '@fortawesome/free-solid-svg-icons';
@@ -12,8 +14,6 @@ export interface IProjectCard {
   linkUrl: string;
 }
 
-
-// ProjectCard component
 export default function ProjectCard({
   children,
   previewSrc,
@@ -22,7 +22,6 @@ export default function ProjectCard({
   sourceUrl,
   linkUrl
 }: IProjectCard) {
-  // Getting the features array from the translation files
   return (
     <div className="w-md mx-4 my-5 px-8 py-6 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
 

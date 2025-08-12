@@ -1,3 +1,5 @@
+// Toggle button to change page language
+
 'use client';
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -7,6 +9,7 @@ export default function ToggleLanguage() {
   const { setLanguage, language } = useLanguage();
   const [rotating, setRotating] = useState(false);
 
+  // Toggle function
   const toggleLanguage = () => {
     const newLang = language === 'pl' ? 'en' : 'pl';
     setLanguage(newLang);
