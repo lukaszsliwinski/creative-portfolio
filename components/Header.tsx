@@ -2,8 +2,9 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { HeaderProps } from '@/types';
 
-export default function Header({ text }: { text: string }) {
+export default function Header({ text }: HeaderProps) {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({

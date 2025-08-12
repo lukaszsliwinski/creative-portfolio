@@ -1,18 +1,9 @@
 // Project card component with description, technologies used, link to source code and link to app
 
-import { ReactNode } from 'react';
 import Image from 'next/image';
 import { faCode, faLink } from '@fortawesome/free-solid-svg-icons';
 import HoverFlip from '@/components/HoverFlip';
-
-export interface IProjectCard {
-  children: ReactNode;
-  previewSrc: string;
-  title: string;
-  description: string;
-  sourceUrl: string;
-  linkUrl: string;
-}
+import { ProjectCardProps } from '@/types';
 
 export default function ProjectCard({
   children,
@@ -21,7 +12,7 @@ export default function ProjectCard({
   description,
   sourceUrl,
   linkUrl
-}: IProjectCard) {
+}: ProjectCardProps) {
   return (
     <div className="w-md mx-4 my-5 px-8 py-6 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
 

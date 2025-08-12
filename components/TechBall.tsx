@@ -2,11 +2,7 @@
 
 import { Decal } from '@react-three/drei';
 import * as THREE from 'three';
-
-type TechBallProps = {
-  position: [number, number, number]
-  texture: THREE.Texture
-}
+import { TechBallProps } from '@/types';
 
 export default function TechBall({ position, texture }: TechBallProps) {
   const radius = 0.3;

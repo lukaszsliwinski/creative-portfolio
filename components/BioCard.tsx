@@ -1,9 +1,10 @@
 // Bio card component
 
-export default function BioCard({ text }: { text: string }) {
+import { BioCardProps } from "@/types";
+
+export default function BioCard({ text }: BioCardProps) {
   return (
-    <div className="bg-white/10 p-8 rounded text-justify"
-    >
+    <div className="bg-white/10 p-8 rounded text-justify">
       {text}
     </div>
   );

@@ -1,9 +1,9 @@
 // Hover flip effect – smooth upward flip of icon/text on hover
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { HoverFlipProps } from '@/types';
 
-export default function HoverFlip({ text, icon, size }: { text?: string, icon?: IconDefinition, size: 'sm' | 'lg' }) {
+export default function HoverFlip({ text, icon, size }: HoverFlipProps) {
   return (
     <span className={`inline-block relative overflow-hidden group cursor-pointer ${size === 'sm' ? 'h-7' : 'h-14'}`}>
       <span className={`
