@@ -2,9 +2,10 @@
 export const iconPaths = [
   '/icons/typescript.png',
   '/icons/javascript.png',
-  '/icons/react.png',
   '/icons/next.png',
+  '/icons/react.png',
   '/icons/angular.png',
+  '/icons/motion.png',
   '/icons/redux.png',
   '/icons/tailwind.png',
   '/icons/flowbite.png',
