@@ -19,7 +19,7 @@ export default function ToggleLanguage() {
 
   return (
     <button
-      className="z-50 fixed right-1 cursor-pointer flex items-center justify-center w-16 h-16 rounded-full transition group"
+      className="z-50 fixed right-1 cursor-pointer flex items-center justify-center w-16 h-16 rounded-full transition group scale-75 md:scale-100"
       onClick={toggleLanguage}
       aria-label="Toggle language"
     >
