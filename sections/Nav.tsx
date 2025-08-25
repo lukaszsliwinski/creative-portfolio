@@ -1,15 +1,17 @@
-// Navigation bar with
+// Navigation bar with language toggle button
 
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import HoverFlip from '@/components/HoverFlip';
 import ToggleLanguage from '@/components/ToggleLanguage';
-import { faUser, faCode } from '@fortawesome/free-solid-svg-icons';
 
 export default function Nav() {
   const { t } = useLanguage();
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState<boolean>();
+
+  // hide menu by default on mobile
+  useEffect(() => setVisible(window.innerWidth > 640), []);
 
   // Handles menu show/hide
   const handleToggle = (show: boolean) => {
@@ -35,7 +37,7 @@ export default function Nav() {
       >
         {visible && (
           <button
-            className="fixed top-4.5 md:top-4 left-5 text-2xl md:text-3xl font-normal transition cursor-pointer hover:text-main mr-4"
+            className="fixed top-4.75 md:top-4 left-5 text-2xl md:text-3xl font-normal transition cursor-pointer hover:text-main mr-4"
             onClick={() => handleToggle(false)}
             aria-label="Hide menu"
           >
@@ -43,12 +45,12 @@ export default function Nav() {
           </button>
         )}
         <ul className="flex justify-center font-light space-x-8 mx-auto my-1">
-          <li className="flex items-end h-10">
+          <li className="flex items-end h-11">
             <a href="#about">
               <HoverFlip text={t('nav.about')} size="sm" />
             </a>
           </li>
-          <li className="flex items-end h-10">
+          <li className="flex items-end h-11">
             <a href="#projects">
               <HoverFlip text={t('nav.projects')} size="sm" />
             </a>
