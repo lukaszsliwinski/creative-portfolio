@@ -5,13 +5,8 @@
 }
 
 @theme {
-  /* --breakpoint-2xs: 360px; */
-  /* --breakpoint-xs: 420px; */
-
+  --breakpoint-xs: 460px;
   --color-main: rgb(var(--main-rgb));
-
-  /* --tracking-main: 4px;
-  --spacing-screen-mobile: calc(var(--vh, 1vh) * 100); */
 }
 
 /* scrollbar */

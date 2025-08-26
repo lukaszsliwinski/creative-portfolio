@@ -16,10 +16,38 @@ export default function Landing() {
   const [h1CursorVisible, setH1CursorVisible] = useState(false);
   const [h2CursorVisible, setH2CursorVisible] = useState(false);
 
+  const [isMobile, setIsMobile] = useState<boolean>();
+  const [canvasWidth, setCanvasWidth] = useState('');
+  const [cameraPosition, setCameraPosition] = useState<[number, number, number]>();
+
   const curtainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setXCurtainOffset(window.innerWidth / 2);
+    const screenWidth = window.innerWidth
+
+    setIsMobile(screenWidth < 640);
+    setXCurtainOffset(screenWidth / 2);
+    
+    // set the carousel size depending on the viewport
+    if (screenWidth < 360) {
+      setCanvasWidth('w-[319px]');
+      setCameraPosition([25, 1, 10]);
+    } else if (screenWidth >= 360 && screenWidth < 460) {
+      setCanvasWidth('w-[359px]');
+      setCameraPosition([21, 1, 10]);
+    } else if (screenWidth >= 460 && screenWidth < 640) {
+      setCanvasWidth('w-[459px]');
+      setCameraPosition([16, 1, 10]);
+    } else if (screenWidth >= 640 && screenWidth < 768) {
+      setCanvasWidth('w-[639px]');
+      setCameraPosition([12, 1, 10]);
+    } else if (screenWidth >= 768 && screenWidth < 1024) {
+      setCanvasWidth('w-[767px]');
+      setCameraPosition([10, 1, 10]);
+    } else if (screenWidth >= 1024) {
+      setCanvasWidth('w-[1023px]');
+      setCameraPosition([8, 1, 10]);
+    }
   }, []);
 
   const curtainSpeedFactor = 0.8;
@@ -71,6 +99,11 @@ export default function Landing() {
   const charVariants = {
     hidden: { display: 'none' },
     visible: { display: 'inline-block', transition: { duration: 0 } }
+  };
+
+  const spaceVariants = {
+    hidden: { display: 'none' },
+    visible: { display: 'block', transition: { duration: 0 } }
   };
 
   const iconsContainerVariants = {
@@ -143,9 +176,13 @@ export default function Landing() {
   }, []);
 
   // split headers to characters function
-  const splitToCharSpans = (text: string) => {
+  const splitToCharSpans = (text: string, newLine: boolean) => {
     return text.split('').map((char, i) => (
-      <motion.span key={i} variants={charVariants}>
+      <motion.span
+        key={i}
+        className={char === ' ' && isMobile && newLine ? 'h-2' : ''}
+        variants={char === ' ' && isMobile && newLine ? spaceVariants : charVariants}
+      >
         {char === ' ' ? '\u00A0' : char}
       </motion.span>
     ));
@@ -156,7 +193,7 @@ export default function Landing() {
       {/* Curtains */}
       <div
         ref={curtainRef}
-        className="fixed top-0 left-0 w-full h-screen z-100 flex overflow-hidden"
+        className="fixed top-0 left-0 w-full h-dvh z-100 flex overflow-hidden"
       >
         {/* Vertical line */}
         <motion.div
@@ -189,31 +226,31 @@ export default function Landing() {
       </motion.div>
 
       {/* Main page */}
-      <div className="h-screen flex flex-col justify-center items-center">
+      <div className="min-h-dvh flex flex-col justify-center items-center">
         <div className="mt-8 text-center tracking-[.4em]">
           {/* Headers */}
           <motion.h1
-            className="mb-4 font-light tracking-[.2em] text-7xl ml-6"
+            className="mb-4 font-light tracking-[.2em] text-5xl md:text-6xl lg:text-7xl"
             animate={h1Controls}
             variants={h1Variants}
             initial="hidden"
           >
-            {splitToCharSpans('ŁUKASZ ŚLIWIŃSKI')}
+            {splitToCharSpans('ŁUKASZ ŚLIWIŃSKI', true)}
             <span
-              className={`text-purple-900 opacity-80 ${h1CursorVisible ? 'visible' : 'invisible'}`}
+              className={`text-purple-900 opacity-80 ${h1CursorVisible ? '' : 'hidden'}`}
             >
               |
             </span>
           </motion.h1>
           <motion.h2
-            className="tracking-[.3em] text-3xl text-neutral-400 mt-4 ml-5"
+            className="tracking-[.3em] text-base sm:text-2xl md:text-3xl text-neutral-400"
             animate={h2Controls}
             variants={h2Variants}
             initial="hidden"
           >
-            {splitToCharSpans('FRONT-END DEVELOPER')}
+            {splitToCharSpans('FRONT-END DEVELOPER', false)}
             <span
-              className={`text-purple-900 opacity-80 ${h2CursorVisible ? 'visible' : 'invisible'}`}
+              className={`text-purple-900 opacity-80 ${h2CursorVisible ? '' : 'hidden'}`}
             >
               |
             </span>
@@ -231,7 +268,7 @@ export default function Landing() {
                 href="https://github.com/twoj-login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group text-3xl overflow-hidden"
+                className="relative group text-xl sm:text-2xl md:text-3xl overflow-hidden"
                 aria-label="GitHub"
                 variants={iconVariants}
               >
@@ -241,7 +278,7 @@ export default function Landing() {
                 href="https://www.linkedin.com/in/twoj-login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group text-3xl overflow-hidden"
+                className="relative group text-xl sm:text-2xl md:text-3xl overflow-hidden"
                 aria-label="LinkedIn"
                 variants={iconVariants}
               >
@@ -253,14 +290,9 @@ export default function Landing() {
 
         {/* Rotating balls with technologies icons */}
         <motion.div initial="hidden" animate={techControls} variants={techVariants}>
-          <div className="flex items-center h-52 mt-12 overflow-y-hidden cursor-w-resize">
+          <div className={`flex items-center ${canvasWidth} mt-12 overflow-y-hidden cursor-w-resize`}>
             <Canvas
-              camera={{ position: [0, 1, 10], fov: 50 }}
-              style={{
-                width: '1000px',
-                height: '70vw',
-                maxHeight: '800px'
-              }}
+              camera={{ position: cameraPosition, fov: 9 }}
             >
               <ambientLight intensity={1.8} />
               <directionalLight position={[5, 5, 5]} />

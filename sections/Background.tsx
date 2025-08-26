@@ -78,8 +78,11 @@ export default function Background() {
 
     // Scroll handler - update position
     const handleScroll = () => {
-      scrollPosY = window.scrollY / document.body.clientHeight;
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      scrollPosY = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
     };
+
     // Window resize handler
     const handleResize = () => {
       const w = window.innerWidth;
