@@ -23,7 +23,7 @@ export default function Nav() {
       {/* Toggle menu open button, always visible on the left */}
       {!visible && (
         <button
-          className="fixed top-4 left-4 z-50 text-3xl transition cursor-pointer hover:text-main"
+          className="fixed top-3.25 left-4 z-50 text-3xl transition cursor-pointer hover:text-main"
           onClick={() => handleToggle(true)}
           aria-label="Show menu"
         >
