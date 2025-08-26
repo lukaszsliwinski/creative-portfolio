@@ -15,9 +15,9 @@ export default function About() {
   return (
     <section className="overflow-x-hidden min-h-screen" id="about">
       <Header text={t('nav.about')} />
-      <div className="grid grid-cols-4 gap-y-8 w-5xl mx-auto">
+      <div className="grid sm:grid-cols-4 gap-y-8 w-full md:w-3xl lg:w-4xl xl:w-5xl px-4 mx-auto">
         <motion.div
-          className="col-span-3"
+          className="sm:col-span-3"
           initial={{ x: -xOffset, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ amount: 0.3, once: false }}
@@ -26,7 +26,7 @@ export default function About() {
           <BioCard text={t('about.bio1')} />
         </motion.div>
         <motion.div
-          className="col-span-3 col-start-2"
+          className="sm:col-span-3 sm:col-start-2"
           initial={{ x: xOffset, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ amount: 0.3, once: false }}

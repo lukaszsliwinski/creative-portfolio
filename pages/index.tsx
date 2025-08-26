@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <LanguageProvider>
       <main
-        className={`${inter.variable} font-sans tracking-[0.165em] text-white text-sm leading-7 select-none font-extralight`}
+        className={`${inter.variable} font-sans tracking-[0.165em] text-white text-xs xs:text-sm leading-6 xs:leading-7 select-none font-extralight`}
       >
         <Background />
         <Landing />
