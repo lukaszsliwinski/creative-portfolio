@@ -265,7 +265,7 @@ export default function Landing() {
               variants={iconsContainerVariants}
             >
               <motion.a
-                href="https://github.com/twoj-login"
+                href="https://github.com/lukaszsliwinski"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative group text-xl sm:text-2xl md:text-3xl overflow-hidden"
@@ -275,7 +275,7 @@ export default function Landing() {
                 <HoverFlip icon={faGithub} size="lg" />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/twoj-login"
+                href="https://www.linkedin.com/in/lsliwinski"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative group text-xl sm:text-2xl md:text-3xl overflow-hidden"
