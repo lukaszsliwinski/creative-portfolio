@@ -37,7 +37,7 @@ export default function Nav() {
       >
         {visible && (
           <button
-            className="fixed top-4.75 md:top-4 left-5 text-2xl md:text-3xl font-normal transition cursor-pointer hover:text-main mr-4"
+            className="fixed top-3.25 left-5 text-2xl md:text-3xl font-normal transition cursor-pointer hover:text-main mr-4"
             onClick={() => handleToggle(false)}
             aria-label="Hide menu"
           >
@@ -45,13 +45,13 @@ export default function Nav() {
           </button>
         )}
         <ul className="flex justify-center font-light space-x-8 mx-auto my-1">
-          <li className="flex items-end h-11">
-            <a href="#about">
+          <li>
+            <a className="flex" href="#about">
               <HoverFlip text={t('nav.about')} size="sm" />
             </a>
           </li>
-          <li className="flex items-end h-11">
-            <a href="#projects">
+          <li>
+            <a className="flex" href="#projects">
               <HoverFlip text={t('nav.projects')} size="sm" />
             </a>
           </li>
