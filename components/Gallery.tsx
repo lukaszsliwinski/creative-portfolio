@@ -3,7 +3,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PanInfo } from "framer-motion";
+import { PanInfo } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCaretLeft, faSquareCaretRight } from '@fortawesome/free-regular-svg-icons';
 
@@ -16,12 +16,12 @@ export default function Gallery({ slides }: GalleryProps) {
   // Handlers
   const handleNext = () => {
     setDirection(1);
-    setIndex(prev => (prev + 1) % slides.length);
+    setIndex((prev) => (prev + 1) % slides.length);
   };
 
   const handlePrev = () => {
     setDirection(-1);
-    setIndex(prev => (prev - 1 + slides.length) % slides.length);
+    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   const handleDotClick = (i: number) => {
@@ -31,8 +31,7 @@ export default function Gallery({ slides }: GalleryProps) {
 
   // Swipe
   const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset: number, velocity: number) =>
-    Math.abs(offset) * velocity;
+  const swipePower = (offset: number, velocity: number) => Math.abs(offset) * velocity;
 
   const handleDragEnd = (
     _: MouseEvent | TouchEvent | PointerEvent,
@@ -51,13 +50,13 @@ export default function Gallery({ slides }: GalleryProps) {
   const slideVariants = {
     enter: (dir: number) => ({
       x: dir > 0 ? 300 : -300,
-      opacity: 0,
+      opacity: 0
     }),
     center: { x: 0, opacity: 1 },
     exit: (dir: number) => ({
       x: dir > 0 ? -300 : 300,
-      opacity: 0,
-    }),
+      opacity: 0
+    })
   };
 
   return (
@@ -88,13 +87,13 @@ export default function Gallery({ slides }: GalleryProps) {
         onClick={handlePrev}
         className="absolute -bottom-2 left-3 -translate-y-1/2 text-xl text-white/30"
       >
-        <FontAwesomeIcon icon={faSquareCaretLeft} size="xl"/>
+        <FontAwesomeIcon icon={faSquareCaretLeft} size="xl" />
       </button>
       <button
         onClick={handleNext}
         className="absolute -bottom-2 right-3 -translate-y-1/2 text-xl text-white/30"
       >
-        <FontAwesomeIcon icon={faSquareCaretRight} size="xl"/>
+        <FontAwesomeIcon icon={faSquareCaretRight} size="xl" />
       </button>
 
       {/* Dots */}
@@ -104,7 +103,7 @@ export default function Gallery({ slides }: GalleryProps) {
             key={i}
             onClick={() => handleDotClick(i)}
             className={`w-3 h-3 rounded-full transition ${
-              i === index ? "bg-white" : "bg-gray-500"
+              i === index ? 'bg-white' : 'bg-gray-500'
             }`}
           />
         ))}

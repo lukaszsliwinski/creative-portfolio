@@ -23,11 +23,11 @@ export default function Landing() {
   const curtainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const screenWidth = window.innerWidth
+    const screenWidth = window.innerWidth;
 
     setIsMobile(screenWidth < 640);
     setXCurtainOffset(screenWidth / 2);
-    
+
     // set the carousel size depending on the viewport
     if (screenWidth < 360) {
       setCanvasWidth('w-[319px]');
@@ -191,10 +191,7 @@ export default function Landing() {
   return (
     <section>
       {/* Curtains */}
-      <div
-        ref={curtainRef}
-        className="fixed top-0 left-0 w-full h-dvh z-100 flex overflow-hidden"
-      >
+      <div ref={curtainRef} className="fixed top-0 left-0 w-full h-dvh z-100 flex overflow-hidden">
         {/* Vertical line */}
         <motion.div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-px bg-white/30"
@@ -236,9 +233,7 @@ export default function Landing() {
             initial="hidden"
           >
             {splitToCharSpans('ŁUKASZ ŚLIWIŃSKI', true)}
-            <span
-              className={`text-purple-900 opacity-80 ${h1CursorVisible ? '' : 'hidden'}`}
-            >
+            <span className={`text-purple-900 opacity-80 ${h1CursorVisible ? '' : 'hidden'}`}>
               |
             </span>
           </motion.h1>
@@ -249,9 +244,7 @@ export default function Landing() {
             initial="hidden"
           >
             {splitToCharSpans('FRONT-END DEVELOPER', false)}
-            <span
-              className={`text-purple-900 opacity-80 ${h2CursorVisible ? '' : 'hidden'}`}
-            >
+            <span className={`text-purple-900 opacity-80 ${h2CursorVisible ? '' : 'hidden'}`}>
               |
             </span>
           </motion.h2>
@@ -290,10 +283,10 @@ export default function Landing() {
 
         {/* Rotating balls with technologies icons */}
         <motion.div initial="hidden" animate={techControls} variants={techVariants}>
-          <div className={`flex items-center ${canvasWidth} mt-12 overflow-y-hidden cursor-w-resize`}>
-            <Canvas
-              camera={{ position: cameraPosition, fov: 9 }}
-            >
+          <div
+            className={`flex items-center ${canvasWidth} mt-12 overflow-y-hidden cursor-w-resize`}
+          >
+            <Canvas camera={{ position: cameraPosition, fov: 9 }}>
               <ambientLight intensity={1.8} />
               <directionalLight position={[5, 5, 5]} />
               <TechCarousel />
