@@ -14,23 +14,23 @@ export default function ProjectCard({
   linkUrl
 }: ProjectCardProps) {
   return (
-    <div className="w-md mx-4 my-5 px-8 py-6 bg-white/10 flex flex-col items-center justify-center rounded-lg select-none">
-      <h3 className="w-full font-normal text-2xl">{title}</h3>
-      <div className="w-full flex space-x-3 py-3">{children}</div>
-      <div className="whitespace-pre-line text-xs/6 text-justify h-24 overflow-y-hidden">
+    <div className="w-md mx-2 sm:mx-4 my-5 px-5 py-4 sm:px-8 sm:py-6 bg-white/10 flex flex-col items-center justify-center rounded sm:rounded-lg select-none">
+      <h3 className="w-full font-normal text-xl sm:text-2xl">{title}</h3>
+      <div className="w-full flex space-x-3 py-2 sm:py-3">{children}</div>
+      <div className="whitespace-pre-line text-xs/5 sm:text-xs/6 text-justify h-24 overflow-y-hidden">
         {description}
       </div>
 
-      <div className="mt-6">
+      <div className="mt-3 sm:mt-6">
         <Image
-          className="mx-auto rounded"
+          className="mx-auto rounded w-75 sm:w-full"
           src={previewSrc}
           alt="apps screen"
           width="400"
           height="260"
           draggable={false}
         />
-        <div className="mt-4 flex flex-wrap justify-center">
+        <div className="mt-4 flex flex-wrap justify-center leading-[1.8rem]">
           <a
             href={sourceUrl}
             target="_blank"

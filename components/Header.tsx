@@ -15,7 +15,7 @@ export default function Header({ text }: HeaderProps) {
   const color = useTransform(scrollYProgress, [0, 1], ['#6b7280', '#ffffff']);
 
   return (
-    <motion.h2 ref={ref} className="font-light text-3xl text-center pt-24 pb-12" style={{ color }}>
+    <motion.h2 ref={ref} className="font-light text-3xl text-center pt-24 pb-6 sm:pb-12" style={{ color }}>
       {text}
     </motion.h2>
   );

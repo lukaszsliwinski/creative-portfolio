@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, useAnimation, useInView, easeInOut } from 'framer-motion';
 
 import Header from '@/components/Header';
+import Gallery from "@/components/Gallery";
 import ProjectCard from '@/components/ProjectCard';
 import Footer from '@/sections/Footer';
 import { useLanguage } from '@/context/LanguageContext';
@@ -16,11 +17,17 @@ export default function Projects() {
   const [isHovered, setIsHovered] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>();
 
   const ref = useRef(null);
   const inView = useInView(ref, { amount: 0.3, once: false });
   const animOpacity = useAnimation();
   const transition = { duration: 0.6, ease: easeInOut };
+
+  // Check if the page is displayed on a mobile device
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 640);
+  },[])
 
   useEffect(() => {
     animOpacity.start({ opacity: inView ? 1 : 0, transition });
@@ -100,48 +107,81 @@ export default function Projects() {
   };
 
   return (
-    <section className="relative min-h-screen" id="projects">
-      <Header text={t('nav.projects')} />
-      <motion.div
-        ref={ref}
-        animate={animOpacity}
-        initial={{ opacity: 0 }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className={`overflow-hidden w-full whitespace-nowrap ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-      >
-        <div
-          ref={containerRef}
-          className="inline-flex select-none"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
+      <section className="relative min-h-screen" id="projects">
+        <Header text={t('nav.projects')} />
+        
+        {isMobile ?
+          <Gallery
+            slides={apps.map((item, i) => (
+              <ProjectCard
+                key={i}
+                previewSrc={item.previewSrc}
+                title={item.title}
+                description={t(item.descriptionKey)}
+                sourceUrl={item.sourceUrl}
+                linkUrl={item.linkUrl}
+              >
+                {item.technologies.map((tech, j) => (
+                  <Image
+                    key={j}
+                    width={20}
+                    height={20}
+                    alt={tech.name}
+                    title={tech.name}
+                    src={tech.src}
+                  />
+                ))}
+              </ProjectCard>
+            ))}
+          />
+        :
+
+        
+        
+        <motion.div
+          ref={ref}
+          animate={animOpacity}
+          initial={{ opacity: 0 }}
+          onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          className={`overflow-hidden w-full whitespace-nowrap ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
         >
-          {[...apps, ...apps].map((item, i) => (
-            <ProjectCard
-              key={i}
-              previewSrc={item.previewSrc}
-              title={item.title}
-              description={t(item.descriptionKey)}
-              sourceUrl={item.sourceUrl}
-              linkUrl={item.linkUrl}
-            >
-              {item.technologies.map((tech, j) => (
-                <Image
-                  key={j}
-                  width="30"
-                  height="30"
-                  alt="tech icon"
-                  title={tech.name}
-                  src={tech.src}
-                />
-              ))}
-            </ProjectCard>
-          ))}
-        </div>
-      </motion.div>
-      <Footer />
-    </section>
+          <div
+            ref={containerRef}
+            className="inline-flex select-none"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+          >
+            {[...apps, ...apps].map((item, i) => (
+              <ProjectCard
+                key={i}
+                previewSrc={item.previewSrc}
+                title={item.title}
+                description={t(item.descriptionKey)}
+                sourceUrl={item.sourceUrl}
+                linkUrl={item.linkUrl}
+              >
+                {item.technologies.map((tech, j) => (
+                  <Image
+                    key={j}
+                    width="30"
+                    height="30"
+                    alt="tech icon"
+                    title={tech.name}
+                    src={tech.src}
+                  />
+                ))}
+              </ProjectCard>
+            ))}
+          </div>
+        </motion.div>
+                }
+        
+        
+        
+        <Footer />
+      </section>
   );
 }

@@ -42,3 +42,7 @@ export interface LanguageContextProps {
 export interface LanguageProviderProps {
   children: ReactNode;
 }
+
+export interface GalleryProps {
+  slides: React.ReactNode[];
+}
