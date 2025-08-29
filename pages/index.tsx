@@ -1,7 +1,8 @@
+import dynamic from 'next/dynamic';
+
 import { LanguageProvider } from '@/context/LanguageContext';
 import Background from '@/sections/Background';
 import Landing from '@/sections/Landing';
-import About from '@/sections/About';
 import Projects from '@/sections/Projects';
 
 import { Inter } from 'next/font/google';
@@ -11,6 +12,8 @@ const inter = Inter({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-inter'
 });
+
+const About = dynamic(() => import('@/sections/About'), { ssr: false });
 
 export default function HomePage() {
   return (
