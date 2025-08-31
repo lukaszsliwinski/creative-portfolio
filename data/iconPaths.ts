@@ -1,0 +1,25 @@
+// List of icon paths located in the public/icons folder
+export const iconPaths = [
+  '/icons/typescript.png',
+  '/icons/javascript.png',
+  '/icons/next.png',
+  '/icons/react.png',
+  '/icons/angular.png',
+  '/icons/motion.png',
+  '/icons/redux.png',
+  '/icons/tailwind.png',
+  '/icons/flowbite.png',
+  '/icons/scss.png',
+  '/icons/bootstrap.png',
+  '/icons/jquery.png',
+  '/icons/python.png',
+  '/icons/node.png',
+  '/icons/php.png',
+  '/icons/flask.png',
+  '/icons/pytorch.png',
+  '/icons/colab.png',
+  '/icons/openvino.png',
+  '/icons/mongo.png',
+  '/icons/mysql.png',
+  '/icons/git.png'
+];

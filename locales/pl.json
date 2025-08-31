@@ -1,0 +1,11 @@
+{
+  "nav.about": "O MNIE",
+  "nav.projects": "PROJEKTY",
+  "about.bio1": "Cześć! Jestem programistą aplikacji internetowych, stron WWW oraz aplikacji PWA. Pracuję jako front-end developer przy rozwoju wewnętrznego systemu do zarządzania działami firmy kolejowej. Po godzinach szlifuję umiejętności poprzez tworzenie własnych aplikacji i stron internetowych. Dodatkowo rozwijam się w obszarze uczenia maszynowego i głębokiego oraz łączę nabytą wiedzę z web developmentem.",
+  "about.bio2": "Poniżej przedstawiam kilka swoich projektów wykonanych w nowoczesnych technologiach front-end'owych takich jak TypeScript, React.js, Next.js, Angular czy Tailwind. Wszystkie aplikacje są umieszczone na własnym, skonfigutowanym przeze mnie serwerze. Wykorzystuję środowisko Node.js/MongoDB jako back-end lub Next.js jako fullstack. Projekty z obszaru deep learning tworzę z wykorzystaniem Python i PyTorch do tworzenia modeli oraz Flask jako back-end. Aplikacje tworzę z zachowaniem zasad responsive web design, aby poprawnie wyświetlały się również na urządzeniach mobilnych.",
+  "projects.digit": "Aplikacja oparta na CNN do rozpoznawania odręcznych cyfr. Przedstawia umiejętności w zakresie projektowania i szkolenia modelu neuronowego oraz łączenia AI z aplikacją internetową.",
+  "projects.radio": "Internetowe radio strumieniujące z zewnętrznego API. Po utworzeniu konta i zalogowaniu można dodawać stacje do ulubionych, podglądać historię ostatnio odtwarzanych stacji oraz zmienić hasło.",
+  "projects.vocabularyquiz": "Aplikacja PWA wspomagająca naukę angielskiego. Po wybraniu kategorii losowanych jest 10 słówek lub fraz. Do każdego słówka użytkownik podaje tłumaczenie i sprawdza poprawność.",
+  "projects.music": "Strona opisująca moją solową działalność muzyczną. Jest to lekka aplikacja napisana w Next.js wykorzystująca SSR. Na stronie zaimplementowany jest odtwarzacz z zewnętrznego API (SoundCloud).",
+  "projects.ksmicroband": "Strona mojego ostatniego duetu zawierająca własny odtwarzacz audio z pełną kontrolą, automatycznym odtwarzaniem następnego utworu i zatrzymaniem po zakończeniu. Utwory pobierane są z własnego API."
+}
