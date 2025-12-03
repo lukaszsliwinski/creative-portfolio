@@ -8,7 +8,6 @@ export const iconPaths = [
   '/icons/motion.png',
   '/icons/redux.png',
   '/icons/tailwind.png',
-  '/icons/flowbite.png',
   '/icons/scss.png',
   '/icons/bootstrap.png',
   '/icons/jquery.png',
@@ -21,5 +20,6 @@ export const iconPaths = [
   '/icons/openvino.png',
   '/icons/mongo.png',
   '/icons/mysql.png',
+  '/icons/docker.png',
   '/icons/git.png'
 ];

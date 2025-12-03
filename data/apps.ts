@@ -61,7 +61,7 @@ export const apps = [
     title: 'KSMicroband Website',
     descriptionKey: 'projects.ksmicroband',
     sourceUrl: 'https://github.com/lukaszsliwinski/ksmb-v2/',
-    linkUrl: 'https://ksmicroband.pl/',
+    linkUrl: 'https://ksmicroband.lukaszsliwinski.pl/',
     technologies: [
       { name: 'JavaScript', src: '/icons/javascript.png' },
       { name: 'React.js', src: '/icons/react.png' },
