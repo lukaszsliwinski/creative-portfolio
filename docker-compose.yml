@@ -1,0 +1,28 @@
+services:
+  portfolio:
+    build: .
+    container_name: portfolio
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=le"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=${PORT}"
+      - "traefik.http.middlewares.portfolio-hsts.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.portfolio-hsts.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.portfolio-hsts.headers.stsPreload=true"
+      - "traefik.http.routers.portfolio.middlewares=portfolio-hsts@docker"
+    networks:
+      - web
+    expose:
+      - "${PORT}"
+
+networks:
+  web:
+    external: true
