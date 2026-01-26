@@ -2,7 +2,7 @@
 
 ## Preview
 
-**[www.portfolio.lukaszsliwinski.pl](http://www.portfolio.lukaszsliwinski.pl)**
+**[www.portfolio.lukaszsliwinski.pl](https://www.portfolio.lukaszsliwinski.pl)**
 
 ![Website Preview](./preview.gif)
 
