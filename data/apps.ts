@@ -16,6 +16,19 @@ export const apps = [
       { name: 'OpenVINO', src: '/icons/openvino.png' }
     ]
   },
+    {
+    previewSrc: '/gif/wedding-preview.gif',
+    title: 'Wedding Website',
+    descriptionKey: 'projects.wedding',
+    sourceUrl: 'https://github.com/lukaszsliwinski/wedding-preview/',
+    linkUrl: 'https://wedding.lukaszsliwinski.pl',
+    technologies: [
+      { name: 'TypeScript', src: '/icons/typescript.png' },
+      { name: 'Next.js', src: '/icons/next.png' },
+      { name: 'Tailwind CSS', src: '/icons/tailwind.png' },
+      { name: 'Motion', src: '/icons/motion.png' }
+    ]
+  },
   {
     previewSrc: '/gif/radio-preview.gif',
     title: 'Radio App',
